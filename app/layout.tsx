@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import Header from './components/header';
 import Announcement from './components/anouncement';
+import '@radix-ui/themes/styles.css';
+import { Theme, ThemePanel } from '@radix-ui/themes';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,9 +25,16 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={poppins.className}>
-        <Announcement />
-        <Header />
-        {children}
+        <Theme
+          accentColor='crimson'
+          grayColor='sand'
+          radius='large'
+          scaling='95%'
+        >
+          <Announcement />
+          <Header />
+          {children}
+        </Theme>
       </body>
     </html>
   );
