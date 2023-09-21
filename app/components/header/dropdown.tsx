@@ -20,7 +20,7 @@ function Dropdown({ title, items }: { title: string; items: string[] }) {
       </div>
       {open && (
         <div className='absolute z-50 top-0 right-0 pt-8 '>
-          <ul className='flex flex-col gap-4 px-4 py-3 bg-slate-200/10  border rounded-md cursor-pointer w-48'>
+          <ul className='flex flex-col gap-4 px-4 py-3 bg-white shadow-md  border rounded-md cursor-pointer w-48'>
             {items.map((item, id) => {
               return <li key={id + item}>{item}</li>;
             })}

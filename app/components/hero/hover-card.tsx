@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 function HoverCard({
   className,
@@ -7,7 +7,7 @@ function HoverCard({
   title,
 }: {
   className: string;
-  image?: string;
+  image?: StaticImageData;
   title: string;
 }) {
   return (
