@@ -21,7 +21,7 @@ const CarouselComponent = () => {
       </div>
       <Swiper
         slidesPerView={isMobile ? 1 : 4}
-        spaceBetween={30}
+        spaceBetween={isMobile ? 5 : 30}
         pagination={{
           clickable: true,
         }}
