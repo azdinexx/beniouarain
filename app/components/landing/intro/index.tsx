@@ -26,7 +26,7 @@ export default function Index() {
 
     timeline
       .from('#bg', { clipPath: `inset(15%)` })
-      .to(introImage.current, { rotation: '360' }, 0);
+      .to(introImage.current, { rotation: 90 }, 0);
   }, []);
 
   return (
@@ -41,7 +41,13 @@ export default function Index() {
           data-scroll-speed='0.3'
           className={styles.introImage}
         >
-          <Image src={intro} alt='intro image' fill={true} priority={true} />
+          <Image
+            src={intro}
+            alt='intro image'
+            fill={true}
+            priority={true}
+            id='myImage'
+          />
         </div>
         <h1 data-scroll data-scroll-speed='0.7'>
           MOROCCAN <br /> HANDMADE <br /> RUGS
