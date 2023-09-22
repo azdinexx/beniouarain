@@ -18,7 +18,7 @@ function Background() {
       },
     });
 
-    timeline.to('#hero', { clipPath: `circle(50% at 50% 50%)` });
+    timeline.to('#hero', { clipPath: `circle(10% at 50% 50%)` });
   }, []);
 
   return (
