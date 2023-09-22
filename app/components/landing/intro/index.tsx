@@ -24,7 +24,9 @@ export default function Index() {
       },
     });
 
-    timeline.from('#bg', { clipPath: `inset(15%)`, repeat: -1, yoyo: true });
+    timeline
+      .from('#bg', { clipPath: `inset(15%)` })
+      .to(introImage.current, { height: '200px' }, 0);
   }, []);
 
   return (
