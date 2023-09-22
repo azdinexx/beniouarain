@@ -4,11 +4,11 @@ import gsap from 'gsap';
 import styles from './style.module.css';
 
 const phrases = [
-  'Los Flamencos National Reserve',
-  'is a nature reserve located',
-  'in the commune of San Pedro de Atacama',
-  'The reserve covers a total area',
-  'of 740 square kilometres (290 sq mi)',
+  'Handmade rugs from Morocco',
+  'Marrakesh Made ',
+  'The High Atlas Mountains Production',
+  'Tailored to your needs',
+  '740 Years of Poufs Artisan',
 ];
 
 export default function Index() {
