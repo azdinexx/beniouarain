@@ -18,12 +18,14 @@ function Background() {
       },
     });
 
-    timeline.to('#hero', { clipPath: `circle(10% at 50% 50%)` });
+    timeline
+      .from('#hero', { clipPath: `circle(20% at 50% 50%) ` })
+      .to('#hero', { clipPath: 'inset(15%)' }, 0);
   }, []);
 
   return (
     <div
-      className='h-screen w-screen container mx-auto flex items-center justify-center'
+      className=' relative  h-screen w-screen container mx-auto flex items-center justify-center'
       id='hero'
     >
       <Image
@@ -33,6 +35,7 @@ function Background() {
         alt='background for the home'
         className='object-cover w-full h-full'
       />
+      <h1 className='absolute text-6xl font-bold text-white'>KENZADI</h1>
     </div>
   );
 }
