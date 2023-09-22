@@ -26,7 +26,7 @@ export default function Index() {
 
     timeline
       .from('#bg', { clipPath: `inset(15%)` })
-      .to(introImage.current, { rotation: 90 }, 0);
+      .to('#myImage', { rotation: 90 }, 0);
   }, []);
 
   return (
