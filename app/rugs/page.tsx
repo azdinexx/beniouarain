@@ -3,6 +3,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import Intro from '../components/landing/intro';
 import Description from '../components/landing/description';
+import Products from '../components/landing/products';
 
 function Page() {
   useEffect(() => {
@@ -15,7 +16,7 @@ function Page() {
     <main>
       <Intro />
       <Description />
-      <div className='mt-[100vh]'></div>
+      <Products />
     </main>
   );
 }

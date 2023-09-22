@@ -1,6 +1,6 @@
 'use client';
 import bg from '../../../../public/images/bg.jpg';
-import intro from '../../../../public/images/intro.jpg';
+import intro from '../../../../public/images/pouf.png';
 import React, { useLayoutEffect, useRef } from 'react';
 import styles from './style.module.css';
 import Image from 'next/image';
@@ -26,7 +26,7 @@ export default function Index() {
 
     timeline
       .from('#bg', { clipPath: `inset(15%)` })
-      .to(introImage.current, { height: '200px' }, 0);
+      .to(introImage.current, { rotation: '360' }, 0);
   }, []);
 
   return (

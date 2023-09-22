@@ -32,8 +32,7 @@
 }
 
 .introImage {
-  filter: brightness(70%);
-  width: 350px;
+  width: 475px;
   height: 475px;
   position: absolute;
 }
