@@ -1,7 +1,11 @@
 'use client';
 import React from 'react';
 import { ChevronDown } from './chevron-down';
-function Dropdown({ title, items }: { title: string; items: string[] }) {
+import { NavItem } from '.';
+import Link from 'next/link';
+import Li from './Li';
+
+function Dropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = React.useState(false);
 
   const mouseEnter = () => setOpen(true);
@@ -13,17 +17,24 @@ function Dropdown({ title, items }: { title: string; items: string[] }) {
       onMouseLeave={mouseLeave}
     >
       <div className='flex gap-2 items-center'>
-        {title}
+        {item.title}
         <ChevronDown
           className={`${open ? 'rotate-180' : ''} transition-all duration-300`}
         />
       </div>
       {open && (
         <div className='absolute z-50 top-0 right-0 pt-8 '>
-          <ul className='flex flex-col gap-4 px-4 py-3 bg-white shadow-md  border rounded-md cursor-pointer w-48'>
-            {items.map((item, id) => {
-              return <li key={id + item}>{item}</li>;
-            })}
+          <ul className='flex flex-col gap-1  py-3 bg-white shadow-md  border rounded-md cursor-pointer w-48'>
+            {item.items &&
+              item.items.map((subItem, id) => {
+                return (
+                  <Li
+                    text={subItem.title}
+                    href={subItem.href}
+                    key={id + subItem.title}
+                  />
+                );
+              })}
           </ul>
         </div>
       )}

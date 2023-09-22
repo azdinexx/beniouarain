@@ -38,7 +38,7 @@ export default function Index() {
         <div
           ref={introImage}
           data-scroll
-          data-scroll-speed='0.3'
+          data-scroll-speed='0.4'
           className={styles.introImage}
         >
           <Image
