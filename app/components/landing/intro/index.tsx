@@ -21,13 +21,13 @@ export default function Index() {
         trigger: '#bg',
         scrub: true,
         start: 'top top',
-        end: isMobile ? '+=200' : '+=500px',
+        end: isMobile ? '+=20' : '+=500px',
       },
     });
 
     timeline
-      .from('#bg', { clipPath: isMobile ? `inset(5%)` : `inset(15%)` })
-      .to('#myImage', { rotation: 90 }, 0);
+      .from('#bg', { clipPath: `inset(15%)` })
+      .to('#myImage', { rotation: isMobile ? 180 : 90 }, 0);
   }, []);
 
   return (
