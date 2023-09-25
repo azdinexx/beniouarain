@@ -6,6 +6,7 @@ import styles from './style.module.css';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { isMobile } from 'react-device-detect';
 
 export default function Index() {
   const background = useRef(null);
@@ -20,12 +21,12 @@ export default function Index() {
         trigger: '#bg',
         scrub: true,
         start: 'top top',
-        end: '+=500px',
+        end: isMobile ? '+=200' : '+=500px',
       },
     });
 
     timeline
-      .from('#bg', { clipPath: `inset(15%)` })
+      .from('#bg', { clipPath: isMobile ? `inset(5%)` : `inset(15%)` })
       .to('#myImage', { rotation: 90 }, 0);
   }, []);
 

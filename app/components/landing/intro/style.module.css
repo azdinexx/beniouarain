@@ -41,3 +41,18 @@
   object-fit: cover;
   object-position: top;
 }
+@media screen and (max-width: 768px) {
+  .intro {
+    margin-top: 25vh;
+  }
+  .intro h1 {
+    font-size: 10vw;
+  }
+  .introImage {
+    width: 300px;
+    height: 300px;
+  }
+  .backgroundImage {
+    height: 100vh;
+  }
+}

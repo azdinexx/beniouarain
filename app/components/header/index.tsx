@@ -4,6 +4,7 @@ import CartBadge from './cartBadge';
 import SearchBadge from './SearchBadge';
 import Li from './Li';
 import Link from 'next/link';
+import Popper from './popper';
 
 export interface NavItem {
   title: string;
@@ -15,26 +16,17 @@ const nav: NavItem[] = [
   { title: 'home', href: '/' },
   { title: 'blog', href: '/blog' },
   { title: 'best selling', href: '/best-selling' },
-  { title: 'about us', href: '/about-us' },
   {
-    title: 'categories',
-    href: '/categories',
+    title: 'pages',
+    href: '/about-us',
     items: [
       {
-        title: 'Beni-Ouarain',
-        href: '/categories/beni-ouarain',
+        title: 'About us',
+        href: '/about-us',
       },
       {
-        title: 'Azilal',
-        href: '/categories/azilal',
-      },
-      {
-        title: 'Boucherouite',
-        href: '/categories/boucherouite',
-      },
-      {
-        title: 'Kilim',
-        href: '/categories/kilim',
+        title: 'Contact us',
+        href: '/contact-us',
       },
     ],
   },
@@ -55,6 +47,24 @@ function Header() {
               <Li key={item.title} text={item.title} href={item.href} />
             )
           )}
+          <Popper item={{ title: 'about', href: '/about' }}>
+            <div className='w-[250px] h-[180px] p-4 flex flex-col'>
+              <h1 className='grow'>Sign in</h1>
+              <button className='px-4 py-2 bg-pink-500 text-white '>
+                Sign In
+              </button>
+            </div>
+          </Popper>
+
+          {/* SHOP */}
+          <Popper item={{ title: 'shop', href: '/shop' }}>
+            <div className='w-screen h-[180px] p-4 flex flex-col'>
+              <h1 className='grow'>Sign in</h1>
+              <button className='px-4 py-2 bg-pink-500 text-white'>
+                Sign In
+              </button>
+            </div>
+          </Popper>
         </ul>
       </nav>
       <div className='flex gap-2 '>

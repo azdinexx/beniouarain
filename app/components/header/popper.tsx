@@ -4,7 +4,13 @@ import { ChevronDown } from './chevron-down';
 import { NavItem } from '.';
 import Li from './Li';
 
-function Dropdown({ item }: { item: NavItem }) {
+function Popper({
+  item,
+  children,
+}: {
+  item: NavItem;
+  children: React.ReactNode;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
 
@@ -56,28 +62,18 @@ function Dropdown({ item }: { item: NavItem }) {
         />
       </button>
       <div
-        className={`origin-top-right absolute right-0 mt-2  rounded-md shadow-md bg-gray-50/20 ${
+        className={`origin-top-right absolute right-0 mt-2  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ${
           isOpen
-            ? 'opacity-100 translate-y-0 '
-            : 'opacity-0 -translate-y-8 pointer-events-none'
+            ? 'opacity-100 translate-y-0  scale-100'
+            : 'opacity-0 -translate-y-8 pointer-events-none scale-75'
         } transition-transform  duration-100 ease-in-out z-10`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <ul className='py-4  w-full text-center '>
-          {item.items &&
-            item.items.map((item) => (
-              <Li
-                key={item.title}
-                href={item.href}
-                text={item.title}
-                border={true}
-              />
-            ))}
-        </ul>
+        {children}
       </div>
     </div>
   );
 }
 
-export default Dropdown;
+export default Popper;

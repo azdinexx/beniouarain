@@ -14,7 +14,7 @@ function HoverCard({
     <div
       className={
         className +
-        'relative overflow-hidden mx-4 md:mx-0 group border-black/5 border rounded-md p-2 text-gray-700 hover:scale-95 transition-all duration-300 cursor-pointer '
+        'relative overflow-hidden mx-4 md:mx-0 group    rounded-md p-2 text-gray-700 hover:scale-95 transition-all duration-300 cursor-pointer '
       }
     >
       {image && (
