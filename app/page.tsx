@@ -1,6 +1,6 @@
-import Hero from './components/hero';
-import CarouselComponent from './components/carrousel';
-import Background from './components/Background';
+import Hero from '../components/hero';
+import CarouselComponent from '../components/carrousel';
+import Background from '../components/Background';
 
 export default function Home() {
   return (

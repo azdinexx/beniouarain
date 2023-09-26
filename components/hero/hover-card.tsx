@@ -7,7 +7,7 @@ function HoverCard({
   title,
 }: {
   className: string;
-  image?: StaticImageData;
+  image?: string;
   title: string;
 }) {
   return (

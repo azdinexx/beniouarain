@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import img from './hero/images/1.jpg';
 import { isMobile } from 'react-device-detect';
 
 // Import Swiper styles
@@ -30,22 +29,22 @@ const CarouselComponent = () => {
         className='mySwiper '
       >
         <SwiperSlide>
-          <Card image={img} title='the best pouf' />
+          <Card image='/hero/2.jpg' title='the best pouf' />
         </SwiperSlide>
         <SwiperSlide>
-          <Card image={img} title='the best pouf' />
+          <Card image='/hero/2.jpg' title='the best pouf' />
         </SwiperSlide>
         <SwiperSlide>
-          <Card image={img} title='the best pouf' />
+          <Card image='/hero/2.jpg' title='the best pouf' />
         </SwiperSlide>
         <SwiperSlide>
-          <Card image={img} title='the best pouf' />
+          <Card image='/hero/2.jpg' title='the best pouf' />
         </SwiperSlide>
         <SwiperSlide>
-          <Card image={img} title='the best pouf' />
+          <Card image='/hero/2.jpg' title='the best pouf' />
         </SwiperSlide>
         <SwiperSlide>
-          <Card image={img} title='the best pouf' />
+          <Card image='/hero/2.jpg' title='the best pouf' />
         </SwiperSlide>
       </Swiper>
     </div>

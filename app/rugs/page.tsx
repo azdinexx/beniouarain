@@ -1,9 +1,9 @@
 'use client';
 import React from 'react';
 import { useEffect } from 'react';
-import Intro from '../components/landing/intro';
-import Description from '../components/landing/description';
-import Products from '../components/landing/products';
+import Intro from '../../components/landing/intro';
+import Description from '../../components/landing/description';
+import Products from '../../components/landing/products';
 
 function Page() {
   useEffect(() => {

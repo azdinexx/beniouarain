@@ -1,6 +1,4 @@
 'use client';
-import bg from '../../../../public/images/bg.jpg';
-import intro from '../../../../public/images/pouf.png';
 import React, { useLayoutEffect, useRef } from 'react';
 import styles from './style.module.css';
 import Image from 'next/image';
@@ -33,7 +31,12 @@ export default function Index() {
   return (
     <div className={styles.homeHeader}>
       <div className={styles.backgroundImage} ref={background} id='bg'>
-        <Image src={bg} fill={true} alt='background image' priority={true} />
+        <Image
+          src={'/images/bg.jpg'}
+          fill={true}
+          alt='background image'
+          priority={true}
+        />
       </div>
       <div className={styles.intro}>
         <div
@@ -43,7 +46,7 @@ export default function Index() {
           className={styles.introImage}
         >
           <Image
-            src={intro}
+            src={'/images/pouf.png'}
             alt='intro image'
             fill={true}
             priority={true}

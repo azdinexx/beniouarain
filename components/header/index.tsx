@@ -5,6 +5,7 @@ import SearchBadge from './SearchBadge';
 import Li from './Li';
 import Link from 'next/link';
 import Popper from './popper';
+import Shop from './Shop';
 
 export interface NavItem {
   title: string;
@@ -47,24 +48,9 @@ function Header() {
               <Li key={item.title} text={item.title} href={item.href} />
             )
           )}
-          <Popper item={{ title: 'about', href: '/about' }}>
-            <div className='w-[250px] h-[180px] p-4 flex flex-col'>
-              <h1 className='grow'>Sign in</h1>
-              <button className='px-4 py-2 bg-pink-500 text-white '>
-                Sign In
-              </button>
-            </div>
-          </Popper>
 
           {/* SHOP */}
-          <Popper item={{ title: 'shop', href: '/shop' }}>
-            <div className='w-screen h-[180px] p-4 flex flex-col'>
-              <h1 className='grow'>Sign in</h1>
-              <button className='px-4 py-2 bg-pink-500 text-white'>
-                Sign In
-              </button>
-            </div>
-          </Popper>
+          <Shop />
         </ul>
       </nav>
       <div className='flex gap-2 '>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { AddShoppingCart } from './addCart';
 import { ArrowOutwardRounded } from './arrow';
 
-function Card({ image, title }: { image: StaticImageData; title: string }) {
+function Card({ image, title }: { image: string; title: string }) {
   return (
     <div className='relative w-full md:w-72 h-72 group overflow-hidden'>
       <Link href='#'>

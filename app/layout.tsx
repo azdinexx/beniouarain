@@ -2,8 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import Header from './components/header';
-import Announcement from './components/anouncement';
+import Header from '../components/header';
+import Announcement from '../components/anouncement';
 import '@radix-ui/themes/styles.css';
 import { Theme, ThemePanel } from '@radix-ui/themes';
 
