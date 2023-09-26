@@ -21,7 +21,7 @@ function ShopCard({ title, img }: { title: string; img: string }) {
         <div className='absolute w-full h-36 bg-gradient-to-t from-white to-transparent left-0 bottom-0 '></div>
       </div>
       <p
-        className={`absolute bottom-5 left-6   pl-4  flex items-end  text-amber-800 ${font.className}`}
+        className={`absolute bottom-5 group-hover:bottom-8 transition-all duration-200 ease-in left-6   pl-4  flex items-end  text-amber-800 ${font.className}`}
       >
         {title}
       </p>
