@@ -14,12 +14,15 @@ function Background() {
         trigger: '#bg',
         scrub: true,
         start: 'top top',
-        end: '+=500px',
+        end: '0',
+        pin: true,
       },
     });
 
     timeline
-      .from('#hero', { clipPath: `circle(20% at 50% 50%) ` })
+      .from('#hero', {
+        clipPath: 'inset(0%)',
+      })
       .to('#hero', { clipPath: 'inset(15%)' }, 0);
   }, []);
 

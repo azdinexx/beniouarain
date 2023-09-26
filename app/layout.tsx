@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import Header from '../components/header';
+import Footer from '@/components/footer';
 import Announcement from '../components/anouncement';
 import '@radix-ui/themes/styles.css';
 import { Theme, ThemePanel } from '@radix-ui/themes';
@@ -31,6 +32,7 @@ export default function RootLayout({
           <Announcement />
           <Header />
           {children}
+          <Footer />
         </Theme>
       </body>
     </html>

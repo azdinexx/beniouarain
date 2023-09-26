@@ -1,0 +1,32 @@
+[
+  {
+    "id": "terms",
+    "title": "Terms and Conditions",
+    "body": "lorems ipsums dolors sit amets consecteturs adipiscing elitss.  "
+  },
+  {
+    "id": "privacy",
+    "title": "Privacy Policy",
+    "body": "lorems ipsums dolors sit amets consecteturs adipiscing elitss.  "
+  },
+  {
+    "id": "about",
+    "title": "About Us",
+    "body": "lorems ipsums dolors sit amets consecteturs adipiscing elitss.  "
+  },
+  {
+    "id": "contact",
+    "title": "Contact Us",
+    "body": "lorems ipsums dolors sit amets consecteturs adipiscing elitss.  "
+  },
+  {
+    "id": "shipping",
+    "title": "Shipping Policy",
+    "body": "lorems ipsums dolors sit amets consecteturs adipiscing elitss.  "
+  },
+  {
+    "id": "return",
+    "title": "Return Policy",
+    "body": "lorems ipsums dolors sit amets consecteturs adipiscing elitss.  "
+  }
+]

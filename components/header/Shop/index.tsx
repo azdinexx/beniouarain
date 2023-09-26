@@ -63,14 +63,13 @@ function Shop() {
             </button>
           </div>
         </section>
-        <div className='w-full mx-auto flex justify-between max-w-sm gap-6 text-gray-600 mt-auto mb-6 '>
-          <PolicyLink title='contact us' href='/contact-us' />
-          <PolicyLink title='privacy Policy' href='/policies/privacy-policy' />
-          <PolicyLink title='return Policy' href='/policies/return-policy' />
-          <PolicyLink
-            title='shipping Policy'
-            href='/policies/shipping-policy'
-          />
+        <div className='w-full mx-auto flex justify-between max-w-lg gap-6 text-gray-600 mt-auto mb-6 '>
+          <PolicyLink title='Policies' href='/policies' />
+          <PolicyLink title='contact us' href='/contact' />
+          <PolicyLink title='privacy Policy' href='/policies/privacy' />
+          <PolicyLink title='terms of use' href='/policies/terms' />
+          <PolicyLink title='return Policy' href='/policies/return' />
+          <PolicyLink title='shipping Policy' href='/policies/shipping' />
         </div>
       </div>
     </div>
