@@ -63,7 +63,7 @@ function Shop() {
             </button>
           </div>
         </section>
-        <div className='w-full mx-auto flex justify-between max-w-lg gap-6 text-gray-600 mt-auto mb-6 '>
+        <div className='w-full mx-auto flex justify-between max-w-xl gap-6 text-gray-600 mt-auto mb-6 '>
           <PolicyLink title='Policies' href='/policies' />
           <PolicyLink title='contact us' href='/contact' />
           <PolicyLink title='privacy Policy' href='/policies/privacy' />

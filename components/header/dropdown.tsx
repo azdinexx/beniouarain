@@ -56,7 +56,7 @@ function Dropdown({ item }: { item: NavItem }) {
         />
       </button>
       <div
-        className={`origin-top-right absolute right-0 mt-2  rounded-md shadow-md bg-gray-50/20 ${
+        className={`origin-top-right absolute right-0 mt-2  rounded-md shadow-md bg-white ${
           isOpen
             ? 'opacity-100 translate-y-0 '
             : 'opacity-0 -translate-y-8 pointer-events-none'

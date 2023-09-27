@@ -16,7 +16,7 @@ export interface NavItem {
 const nav: NavItem[] = [
   { title: 'home', href: '/' },
   { title: 'blog', href: '/blog' },
-  { title: 'best selling', href: '/best-selling' },
+  { title: 'collections', href: '/collections' },
   {
     title: 'pages',
     href: '/about-us',
@@ -34,12 +34,12 @@ const nav: NavItem[] = [
 ];
 function Header() {
   return (
-    <header className='container px-4 md-px-0 py-4  mb-4 flex justify-between mx-auto '>
+    <header className='container mx-auto py-4  mb-4 flex  w-full   '>
       <Link href={'/'}>
-        <div className='font-[200] text-2xl'>BENIOUARAIN</div>
+        <div className='font-[200] text-2xl '>BENIOUARAIN</div>
       </Link>
 
-      <nav className='hidden md:flex items-center '>
+      <nav className='hidden md:flex items-center mr-auto ml-20 text-sm '>
         <ul className='flex items-center gap-6'>
           {nav.map((item) =>
             item.items ? (
@@ -53,9 +53,9 @@ function Header() {
           <Shop />
         </ul>
       </nav>
-      <div className='flex gap-2 '>
-        <SearchBadge />
+      <div className='flex mr-2  '>
         <CartBadge qty={5} />
+        <SearchBadge />
       </div>
     </header>
   );
