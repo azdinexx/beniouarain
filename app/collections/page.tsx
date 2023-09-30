@@ -1,10 +1,7 @@
-import { getAllProducts } from '@/utils/products';
 import React from 'react';
 
 const dd = [1, 0, 1];
 async function page() {
-  const products = await getAllProducts();
-  console.log(products);
   return (
     <div className='grid grid-cols-3 gap-4'>
       {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
