@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useEffect } from 'react';
-function Locomotive({ children }: { children: React.ReactNode }) {
+export function Locomotive({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import('locomotive-scroll')).default;
@@ -11,5 +11,3 @@ function Locomotive({ children }: { children: React.ReactNode }) {
   }, []);
   return <>{children}</>;
 }
-
-export default Locomotive;
