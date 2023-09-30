@@ -58,9 +58,11 @@ function Shop() {
           <ShopCard img='/hero/4.jpg' title='Pillows' />
           <ShopCard img='/hero/5.jpg' title='Best Selling' />
           <div className='bg-amber-50 flex items-center justify-center mr-5 rounded-md'>
-            <button className='bg-amber-500 text-white px-6 py-2 text-lg rounded-full hover:bg-amber-300'>
-              Discover All
-            </button>
+            <Link href={'/collections'}>
+              <button className='bg-amber-500 text-white px-6 py-2 text-lg rounded-full hover:bg-amber-300'>
+                Discover All
+              </button>
+            </Link>
           </div>
         </section>
         <div className='w-full mx-auto flex justify-between max-w-xl gap-6 text-gray-600 mt-auto mb-6 '>

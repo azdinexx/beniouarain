@@ -1,12 +1,28 @@
+import { getAllProducts } from '@/utils/products';
 import React from 'react';
 
-function page() {
+const dd = [1, 0, 1];
+async function page() {
+  const products = await getAllProducts();
+  console.log(products);
   return (
-    <div className='flex gap-2 flex-col'>
-      <div className='p-2 max-w-screen-md mx-auto h-screen bg-green-400'></div>
-      <div className='p-2 max-w-screen-md mx-auto h-screen bg-green-400'></div>
-      <div className='p-2 max-w-screen-md mx-auto h-screen bg-green-400'></div>
-      <div className='p-2 max-w-screen-md mx-auto h-screen bg-green-400'></div>
+    <div className='grid grid-cols-3 gap-4'>
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
+        return (
+          <div className='w-full flex flex-col gap-2' key={item}>
+            <div
+              className={`w-full h-72 bg-gray-100 ${
+                dd[item] === 1 ? 'col-span-2' : ''
+              }`}
+            >
+              {item}
+            </div>
+            <span className='text-transparent bg-gray-300 w-fit'>
+              dddddddddddd
+            </span>
+          </div>
+        );
+      })}
     </div>
   );
 }

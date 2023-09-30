@@ -34,7 +34,7 @@ function page() {
   return (
     <div>
       <div className='grid grid-cols-4 gap-4'>
-        {posts.map((post) => (
+        {posts.map((post, i) => (
           <div key={post.title} className='  p-4 flex flex-col gap-2 '>
             <div className='w-f aspect-video bg-gray-100 rounded-md'></div>
             <h3 className='text-transparent bg-gray-200 w-fit rounded-sm'>
