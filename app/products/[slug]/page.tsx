@@ -16,7 +16,7 @@ async function page({ params }: { params: { slug: string } }) {
       <Details
         title={data.title}
         description={data.description}
-        price={data.variants[0].price}
+        price={data.variants[0].price.amount}
         id={data.id}
       />
       <RecommendedProducts />

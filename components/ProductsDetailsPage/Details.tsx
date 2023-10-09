@@ -3,14 +3,14 @@ import React from 'react';
 interface Props {
   title: string;
   description: string;
-  price: string;
+  price: number;
   id: string;
 }
 function Details({ title, description, price, id }: Props) {
   return (
     <div className='w-2/5  p-6 flex flex-col gap-5'>
       <h1 className='text-3xl font-[300]'>{title}</h1>
-      <div className='  text-xl'>${price.amount} USD</div>
+      <div className='  text-xl'>${price} USD</div>
 
       <div className=' w-min'>
         <small className=''>Quantity</small>
