@@ -1,12 +1,7 @@
-import { parseShopifyResponse, shopifyClient } from '@/lib/shopify';
 import React from 'react';
 
 const dd = [1, 0, 1];
 async function page() {
-  const data = await shopifyClient.collection.fetchAll().then((collections) => {
-    return parseShopifyResponse(collections);
-  });
-  console.log(data);
   return (
     <div className='grid grid-cols-3 gap-4'>
       {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
