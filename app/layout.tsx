@@ -25,7 +25,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Announcement />
         <Header />
-        <BreadCrumbs />
         <div className='container mx-auto'>{children}</div>
         <Footer />
       </body>
