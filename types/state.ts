@@ -40,7 +40,7 @@ export interface Product {
   publishedAt: Date;
   onlineStoreUrl: string | null;
   options: Array<{}> | null;
-  images: Array<{}>;
+  images: Array<string>;
   variants: Array<{}> | null;
   type: {
     name: string;

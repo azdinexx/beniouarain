@@ -26,7 +26,9 @@ async function ProductList() {
                 <div>
                   <Image
                     src={
-                      product.images[0] ? product?.images[0] : '/no-image.png'
+                      product.images && product.images[0]
+                        ? product.images[0]
+                        : '/no-image.png'
                     }
                     alt={product.title}
                     className='w-full h-64 object-cover'

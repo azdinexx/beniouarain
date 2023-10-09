@@ -5,5 +5,5 @@ export const shopifyClient = Client.buildClient({
   apiVersion: '2023-10',
 });
 
-export const parseShopifyResponse = (response) =>
+export const parseShopifyResponse = (response: Client.Collection[] | Client.Product[]) =>
   JSON.parse(JSON.stringify(response));
