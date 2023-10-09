@@ -31,6 +31,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@types/locomotive-scroll": "^4.1.1"
+    "@types/locomotive-scroll": "^4.1.1",
+    "@types/shopify-buy": "^2.17.2"
   }
 }
