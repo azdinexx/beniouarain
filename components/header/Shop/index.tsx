@@ -44,7 +44,7 @@ function Shop() {
         Shop
       </button>
       <div
-        className={` absolute left-0 top-20 w-full h-[300px]  shadoworigin-top-bottom  right-0 mt-2   shadow bg-white ${
+        className={` absolute left-0 top-20 w-full h-[240px]  shadoworigin-top-bottom  right-0 mt-2   shadow bg-white ${
           isOpen
             ? 'opacity-100 translate-y-0  scale-100'
             : 'opacity-0 -translate-y-8 pointer-events-none scale-75'
@@ -65,14 +65,6 @@ function Shop() {
             </Link>
           </div>
         </section>
-        <div className='w-full mx-auto flex justify-between max-w-xl gap-6 text-gray-600 mt-auto mb-6 '>
-          <PolicyLink title='Policies' href='/policies' />
-          <PolicyLink title='contact us' href='/contact' />
-          <PolicyLink title='privacy Policy' href='/policies/privacy' />
-          <PolicyLink title='terms of use' href='/policies/terms' />
-          <PolicyLink title='return Policy' href='/policies/return' />
-          <PolicyLink title='shipping Policy' href='/policies/shipping' />
-        </div>
       </div>
     </div>
   );

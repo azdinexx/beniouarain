@@ -6,6 +6,7 @@ import Header from '../components/header';
 import Footer from '@/components/footer';
 import Announcement from '../components/anouncement';
 import { Locomotive } from './locomotive';
+import BreadCrumbs from '@/components/BreadCrumbs';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,11 +24,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <Announcement />
-        <Locomotive>
-          <Header />
-          <div className='container mx-auto'>{children}</div>
-          <Footer />
-        </Locomotive>
+        <Header />
+        <BreadCrumbs />
+        <div className='container mx-auto'>{children}</div>
+        <Footer />
       </body>
     </html>
   );
