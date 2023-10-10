@@ -19,7 +19,7 @@ export const CarouselContext = createContext<Props>({
 export function CarouselProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [current, setCurrent] = useState(0);
-  const [images, setimages] = useState([]);
+  const [images, setimages] = useState<string[]>([]);
 
   return (
     <CarouselContext.Provider
