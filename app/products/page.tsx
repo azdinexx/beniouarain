@@ -7,12 +7,11 @@ import Card from '@/components/ProductsPage/product-card';
 async function ProductList() {
   const products = await shopifyClient.product.fetchAll();
   const data = parseShopifyResponse(products);
-  console.log(data);
   return (
     <div className='flex flex-col '>
       <Hero />
       <p className='mt-2 text-gray-500'>{data.length} products</p>
-      <div className='grid grid-cols-5 gap-5 p-8'>
+      <div className='grid grid-cols-4 gap-5 p-8'>
         {data.length === 0 ? (
           <div className='text-center'>No products found</div>
         ) : (

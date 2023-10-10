@@ -8,7 +8,7 @@ interface Props {
 }
 function Details({ title, description, price, id }: Props) {
   return (
-    <div className='w-2/5  p-6 flex flex-col gap-5'>
+    <div className=' col-span-2 p-6  flex flex-col gap-5  shadow-sm rounded-md '>
       <h1 className='text-3xl font-[300]'>{title}</h1>
       <div className='  text-xl'>${price} USD</div>
 
