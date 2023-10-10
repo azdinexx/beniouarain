@@ -4,7 +4,6 @@ import Images from '@/components/ProductsDetailsPage/images';
 import React from 'react';
 import { shopifyClient, parseShopifyResponse } from '@/lib/shopify';
 import { Product } from 'shopify-buy';
-import ImageCaroussel from '@/components/ProductsDetailsPage/ImageCaroussel';
 
 async function page({ params }: { params: { slug: string } }) {
   const { slug } = params;

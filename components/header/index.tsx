@@ -6,6 +6,7 @@ import Li from './Li';
 import Link from 'next/link';
 import Popper from './popper';
 import Shop from './Shop';
+import { CartContext } from '@/hooks/CartContext';
 
 export interface NavItem {
   title: string;
@@ -53,8 +54,10 @@ function Header() {
           <Shop />
         </ul>
       </nav>
-      <div className='flex mr-2  '>
-        <CartBadge qty={5} />
+      <div className='relative flex mr-2  '>
+        <CartContext>
+          <CartBadge qty={5} />
+        </CartContext>
         <SearchBadge />
       </div>
     </header>
