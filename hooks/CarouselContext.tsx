@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, createContext, useState } from 'react';
 interface Props {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  setimages: Dispatch<SetStateAction<never[]>>;
+  setimages: Dispatch<SetStateAction<string[]>>;
   setCurrent: Dispatch<SetStateAction<number>>;
 }
 
