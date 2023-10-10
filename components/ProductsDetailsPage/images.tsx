@@ -3,6 +3,7 @@ import React from 'react';
 import { CarouselContext } from '@/hooks/CarouselContext';
 import { useContext } from 'react';
 import Image from 'next/image';
+import cn from '@/lib/merge';
 
 function Images({ images }: { images: Array<string> }) {
   const { setIsOpen, setimages, setCurrent } = useContext(CarouselContext);
@@ -39,14 +40,17 @@ function Images({ images }: { images: Array<string> }) {
           height={1000}
         />
       </div>
-      <div className=' grid grid-cols-4 gap-10 '>
+      <div className=' grid grid-cols-4 gap-10 py-4 '>
         {images.map((image, index) => (
           <div
             key={index}
-            className={`aspect-square  h-full  rounded-lg scale-90 overflow-hidden transition duration-150 ease-in-out blur-sm ${
-              currentImage === index &&
-              'ring-2 ring-offset-3 ring-amber-500   brightness-125 blur-0 scale-100'
-            }`}
+            className={cn(
+              'aspect-square  h-full  rounded-lg scale-90 overflow-hidden transition duration-150 ease-in-out blur-sm',
+
+              currentImage === index
+                ? 'ring-2 ring-offset-3 ring-amber-500   brightness-125  scale-100 filter-none '
+                : ''
+            )}
             onClick={() => setCurrentImage(index)}
           >
             <Image
