@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { Product } from 'shopify-buy';
 
@@ -9,19 +10,21 @@ function RecommendedProducts({ data }: { data: Array<Product> }) {
       <div className='grid grid-cols-4 gap-5'>
         {data.map((product) => (
           <div key={product.id}>
-            <div className='aspect-square  w-full  rounded-lg  overflow-hidden transition duration-150 ease-in-out  '>
-              <Image
-                src={product.images[0].src}
-                alt='product'
-                className='w-full h-full object-cover'
-                height={200}
-                width={200}
-              />
-            </div>
-            <p>
-              {product.title.substring(0, 50)} - $
-              {product.variants[0].price.amount} USD
-            </p>
+            <Link href={product.handle}>
+              <div className='aspect-square  w-full  rounded-lg  overflow-hidden transition duration-150 ease-in-out  '>
+                <Image
+                  src={product.images[0].src}
+                  alt='product'
+                  className='w-full h-full object-cover'
+                  height={400}
+                  width={400}
+                />
+              </div>
+              <p className='py-2'>{product.title.substring(0, 50)}</p>
+              <p className='font-bold'>
+                ${product.variants[0].price.amount} USD
+              </p>
+            </Link>
           </div>
         ))}
       </div>

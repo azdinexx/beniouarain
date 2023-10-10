@@ -16,10 +16,10 @@ function ImageCaroussel({
     prev?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
   return (
-    <section className='absolute inset-0 z-50 bg-slate-200    w-screen box-border  h-screen max-h-screen    '>
+    <section className='absolute top-0 left-0 z-50 bg-slate-200    w-full box-border   p-10'>
       <button
         onClick={() => setIsOpen(false)}
-        className='w-16 h-16 bg-red-200 active:scale-90 fixed flex items-center justify-center rounded-full top-10 right-10 hover:opacity-60'
+        className='w-16 h-16 bg-amber-200 active:scale-90 fixed flex items-center justify-center rounded-full top-20 right-20 hover:opacity-60'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -33,7 +33,7 @@ function ImageCaroussel({
           />
         </svg>
       </button>
-      <div className='flex flex-col gap-10   w-full overflow-hidden '>
+      <div className='flex flex-col gap-10    w-full overflow-hidden '>
         {images.map((image, index) => (
           <Image
             key={index}
