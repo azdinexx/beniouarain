@@ -5,6 +5,9 @@ const nextConfig = {
   images: {
     remotePatterns: [{ hostname: 'cdn.shopify.com' }],
   },
+  experimental: {
+    serverActions: true,
+  },
 };
 
 module.exports = nextConfig;

@@ -1,16 +1,14 @@
 import React from 'react';
+import { AddToCart } from '@/components/cart/add-to-cart';
+import { Product } from '@/lib/shopify/types';
 
-interface Props {
-  title: string;
-  description: string;
-  price: number;
-  id: string;
-}
-function Details({ title, description, price, id }: Props) {
+function Details({ product }: { product: Product }) {
+  const { title, description, id } = product;
+
   return (
     <div className=' col-span-2 p-6  flex flex-col gap-5  shadow-sm rounded-md '>
       <h1 className='text-3xl font-[300]'>{title}</h1>
-      <div className='  text-xl'>${price} USD</div>
+      <div className='  text-xl'>${product.variants[0].price.amount} USD</div>
 
       <div className=' w-min'>
         <small className=''>Quantity</small>
@@ -25,9 +23,11 @@ function Details({ title, description, price, id }: Props) {
         </div>
       </div>
 
-      <button className='border py-3 rounded-lg hover:bg-slate-50 active:scale-90'>
-        Add To Cart
-      </button>
+      <AddToCart
+        variants={product.variants}
+        availableForSale={product.availableForSale}
+      />
+
       <button className='  py-3 rounded-lg bg-amber-400 hover:bg-amber-400/80 shadow-md active:scale-90'>
         Buy It Now
       </button>

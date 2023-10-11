@@ -1,5 +1,5 @@
 'use client';
-import Cart from '@/components/cart';
+import Cart from '@/components/carto';
 import { Dispatch, SetStateAction, createContext, useState } from 'react';
 
 interface Props {

@@ -4,7 +4,7 @@ import CartBadge from './cartBadge';
 import SearchBadge from './SearchBadge';
 import Li from './Li';
 import Link from 'next/link';
-import Popper from './popper';
+import Cart from '../cart';
 import Shop from './Shop';
 import { CartContext } from '@/hooks/CartContext';
 
@@ -55,10 +55,7 @@ function Header() {
         </ul>
       </nav>
       <div className='relative flex mr-2  '>
-        <CartContext>
-          <CartBadge qty={5} />
-        </CartContext>
-        <SearchBadge />
+        <Cart />
       </div>
     </header>
   );

@@ -2,19 +2,19 @@
 
 import { PlusIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import { addItem } from 'components/cart/actions';
-import LoadingDots from 'components/loading-dots';
-import { ProductVariant } from 'lib/shopify/types';
+import { addItem } from '@/components/cart/actions';
+import LoadingDots from '@/components/loading-dots';
+import { ProductVariant } from '@/lib/shopify/types';
 import { useSearchParams } from 'next/navigation';
 import {
   // @ts-ignore
   experimental_useFormState as useFormState,
-  experimental_useFormStatus as useFormStatus
+  experimental_useFormStatus as useFormStatus,
 } from 'react-dom';
 
 function SubmitButton({
   availableForSale,
-  selectedVariantId
+  selectedVariantId,
 }: {
   availableForSale: boolean;
   selectedVariantId: string | undefined;
@@ -35,12 +35,12 @@ function SubmitButton({
   if (!selectedVariantId) {
     return (
       <button
-        aria-label="Please select an option"
+        aria-label='Please select an option'
         aria-disabled
         className={clsx(buttonClasses, disabledClasses)}
       >
-        <div className="absolute left-0 ml-4">
-          <PlusIcon className="h-5" />
+        <div className='absolute left-0 ml-4'>
+          <PlusIcon className='h-5' />
         </div>
         Add To Cart
       </button>
@@ -52,15 +52,19 @@ function SubmitButton({
       onClick={(e: React.FormEvent<HTMLButtonElement>) => {
         if (pending) e.preventDefault();
       }}
-      aria-label="Add to cart"
+      aria-label='Add to cart'
       aria-disabled={pending}
       className={clsx(buttonClasses, {
         'hover:opacity-90': true,
-        disabledClasses: pending
+        disabledClasses: pending,
       })}
     >
-      <div className="absolute left-0 ml-4">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
+      <div className='absolute left-0 ml-4'>
+        {pending ? (
+          <LoadingDots className='mb-3 bg-white' />
+        ) : (
+          <PlusIcon className='h-5' />
+        )}
       </div>
       Add To Cart
     </button>
@@ -69,7 +73,7 @@ function SubmitButton({
 
 export function AddToCart({
   variants,
-  availableForSale
+  availableForSale,
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
@@ -87,8 +91,11 @@ export function AddToCart({
 
   return (
     <form action={actionWithVariant}>
-      <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
-      <p aria-live="polite" className="sr-only" role="status">
+      <SubmitButton
+        availableForSale={availableForSale}
+        selectedVariantId={selectedVariantId}
+      />
+      <p aria-live='polite' className='sr-only' role='status'>
         {message}
       </p>
     </form>

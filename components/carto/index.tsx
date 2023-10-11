@@ -6,6 +6,7 @@ import { CartContexto } from '@/hooks/CartContext';
 export default function Cart() {
   const { items } = useCart();
   const { setIsOpen } = React.useContext(CartContexto);
+
   return (
     <div
       className=' absolute top-10 right-10 w-96 h-[calc(100vh-10rem)] bg-white shadow-lg flex flex-col'

@@ -6,6 +6,7 @@ import Header from '../components/header';
 import Footer from '@/components/footer';
 import Announcement from '../components/anouncement';
 import { CarouselProvider } from '@/hooks/CarouselContext';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 

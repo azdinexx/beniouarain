@@ -1,4 +1,5 @@
 'use client';
+import { Image as Img } from '@/lib/shopify/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -6,8 +7,8 @@ import React from 'react';
 interface Props {
   title: string;
   handle: string;
-  price: number;
-  images: string[];
+  price: string;
+  images: Img[];
 }
 function Card({ title, handle, price, images }: Props) {
   const [currentImage, setCurrentImage] = React.useState(0);
@@ -18,9 +19,9 @@ function Card({ title, handle, price, images }: Props) {
         onMouseEnter={() => setCurrentImage(1)}
         onMouseLeave={() => setCurrentImage(0)}
       >
-        <div className='w-full  h-56 group-hover:rounded-md rounded-[3px] overflow-hidden'>
+        <div className='w-full aspect-square group-hover:rounded-md rounded-[3px] overflow-hidden'>
           <Image
-            src={images[currentImage]}
+            src={images[currentImage].url}
             alt={title}
             width={700}
             height={700}

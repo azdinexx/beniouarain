@@ -1,12 +1,14 @@
 import React from 'react';
-import { parseShopifyResponse, shopifyClient } from '../../lib/shopify';
 import Hero from '@/components/ProductsPage/hero';
-import { Product } from 'shopify-buy';
+
 import Card from '@/components/ProductsPage/product-card';
+import { getProducts } from '@/lib/shopify';
+
+import { Product } from '@/lib/shopify/types';
 
 async function ProductList() {
-  const products = await shopifyClient.product.fetchAll();
-  const data = parseShopifyResponse(products);
+  const data = await getProducts({});
+
   return (
     <div className='flex flex-col '>
       <Hero />
@@ -20,7 +22,7 @@ async function ProductList() {
               <Card
                 key={product.id}
                 title={product.title}
-                images={product.images.map((image) => image.src)}
+                images={product.images.map((image) => image)}
                 handle={product.handle}
                 price={product.variants[0].price.amount}
               />
@@ -41,29 +43,3 @@ async function ProductList() {
 }
 
 export default ProductList;
-
-{
-  /*
-  <Link href={'products/' + product.handle} key={product.id}>
-                <div className='flex flex-col'>
-                  <div>
-                    <Image
-                      src={
-                        product.images && product.images[0]
-                          ? product.images[0]
-                          : '/no-image.png'
-                      }
-                      alt={product.title}
-                      className='w-full h-64 object-cover'
-                      width={650}
-                      height={650}
-                    />
-                  </div>
-                  <div className='text-left text-xs pt-2'>
-                    {product.title.substring(0, 55) + '...'}
-                  </div>
-                  <div className='text-center'>$20</div>
-                </div>
-              </Link>
-  */
-}
