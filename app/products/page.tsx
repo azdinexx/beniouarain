@@ -7,7 +7,10 @@ import { getProducts } from '@/lib/shopify';
 import { Product } from '@/lib/shopify/types';
 
 async function ProductList() {
-  const data = await getProducts({});
+  const data = await getProducts({
+    query: 'title: "rug" OR "blanket"',
+    sortKey: 'PRICE',
+  });
 
   return (
     <div className='flex flex-col '>
