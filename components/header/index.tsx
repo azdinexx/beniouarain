@@ -15,7 +15,7 @@ export interface NavItem {
 }
 
 const nav: NavItem[] = [
-  { title: 'All', href: '/products' },
+  { title: 'All', href: '/all' },
   { title: 'blog', href: '/blog' },
   { title: 'collections', href: '/collections' },
   {

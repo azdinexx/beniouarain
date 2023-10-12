@@ -13,7 +13,7 @@ interface Props {
 function Card({ title, handle, price, images }: Props) {
   const [currentImage, setCurrentImage] = React.useState(0);
   return (
-    <Link href={'products/' + handle}>
+    <Link href={'all/' + handle}>
       <div
         className='group p-2 hover:ring-1     hover:shadow-lg transition duration-300 ease-in-out   flex flex-col justify-between rounded-xl hover:scale-110'
         onMouseEnter={() => setCurrentImage(1)}

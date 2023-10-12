@@ -13,7 +13,6 @@ async function page({ params }: { params: { slug: string } }) {
     const recommended = await getProducts({
       query: `tag:rugs}`,
     });
-    console.log(recommended);
     const images = product?.images.map((img) => img.url);
 
     return (
