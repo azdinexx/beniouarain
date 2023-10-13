@@ -8,7 +8,7 @@ function Page() {
   return (
     <main>
       <Locomotive>
-        {isMobile && (
+        {!isMobile && (
           <>
             <Intro />
             <Description />

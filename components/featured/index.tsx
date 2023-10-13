@@ -23,10 +23,12 @@ async function Featured() {
       </h2>
       <section className='grid grid-cols-1 grid-rows-2     bg-amber-100/20'>
         {products.map((product, i) =>
-          product === null ? null : isMobile ? (
-            <Article key={product.id} product={product} reverse={i === 1} />
-          ) : (
-            <Article key={product.id} product={product} />
+          product === null ? null : (
+            <Article
+              key={product.id}
+              product={product}
+              reverse={isMobile ? i === 1 : false}
+            />
           )
         )}
       </section>
