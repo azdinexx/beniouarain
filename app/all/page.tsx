@@ -13,10 +13,11 @@ async function ProductList() {
   });
 
   return (
-    <div className='flex flex-col '>
+    <div className='flex flex-col p-3 md:p-0'>
       <Hero />
+
       <p className='mt-2 text-gray-500'>{data.length} products</p>
-      <div className='grid grid-cols-4 gap-5 p-8'>
+      <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
         {data.length === 0 ? (
           <div className='text-center'>No products found</div>
         ) : (

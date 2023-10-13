@@ -44,31 +44,6 @@ function Hero() {
             />{' '}
           </div>
         </div>
-        <div className='flex flex-col'>
-          <span className='py-3'>Sort By:</span>
-          <div className='flex gap-3'>
-            <Parameter
-              title='Price'
-              items={[
-                '$0 - $25',
-                '$25 - $50',
-                '$50 - $100',
-                '$100 - $200',
-                '$200+',
-              ]}
-            />{' '}
-            <Parameter
-              title='Price'
-              items={[
-                '$0 - $25',
-                '$25 - $50',
-                '$50 - $100',
-                '$100 - $200',
-                '$200+',
-              ]}
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
