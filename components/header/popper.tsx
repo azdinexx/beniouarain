@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from './chevron-down';
-import { NavItem } from '.';
+import { NavItem } from './ClientHeader';
 import Li from './Li';
 
 function Popper({
