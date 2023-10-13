@@ -9,8 +9,6 @@ export function Locomotive({ children }: { children: React.ReactNode }) {
     (async () => {
       const LocomotiveScroll = (await import('locomotive-scroll')).default;
       const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-
         smooth: true,
         smartphone: { smooth: true },
       });
