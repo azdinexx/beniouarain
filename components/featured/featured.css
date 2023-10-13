@@ -1,0 +1,13 @@
+.pattern {
+  opacity: 0.8;
+  background-size: 20px 20px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    #80723764,
+    #f0dc8488 1px,
+    #f7eec655 1px,
+    #f7eec655
+  );
+  background-color: #f7eec655;
+  border-radius: 10px;
+}

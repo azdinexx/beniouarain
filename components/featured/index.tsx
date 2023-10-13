@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { getProducts } from '@/lib/shopify';
 import { Product } from '@/lib/shopify/types';
 import { AddToCart } from '../cart/add-to-cart';
-import { isMobile } from 'react-device-detect';
+import './featured.css';
 
 async function Featured() {
   const products = await getProducts({
@@ -13,7 +13,7 @@ async function Featured() {
   console.log(products.length);
 
   return (
-    <div className='max-w-5xl mx-auto my-48'>
+    <div className='max-w-5xl mx-auto my-48 pattern'>
       <h2
         className='font-bold text-4xl mb-5 max-w-sm'
         data-scroll
@@ -24,11 +24,7 @@ async function Featured() {
       <section className='grid grid-cols-1 grid-rows-2     bg-amber-100/20'>
         {products.map((product, i) =>
           product === null ? null : (
-            <Article
-              key={product.id}
-              product={product}
-              reverse={isMobile ? i === 1 : false}
-            />
+            <Article key={product.id} product={product} reverse={i === 1} />
           )
         )}
       </section>
@@ -47,7 +43,7 @@ function Article({
 }) {
   return (
     <article className='grid grid-cols-1 md:grid-cols-2  '>
-      <div className={`${reverse && 'order-2'} flex flex-col gap-3 p-10`}>
+      <div className={`${reverse && 'md:order-2'} flex flex-col gap-3 p-10`}>
         <h2 className='text-xl font-bold max-w-xs'>{product.title}</h2>
         <p className='py-3'>{product.description.substring(0, 320) + '...'}</p>
         <p className='font-bold pb-3'>
