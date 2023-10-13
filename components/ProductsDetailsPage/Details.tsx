@@ -7,9 +7,7 @@ function Details({ product }: { product: Product }) {
 
   return (
     <div className=' col-span-2 p-6  flex flex-col gap-5  shadow-sm rounded-md '>
-      <h1 className=' hidden md:block first-line:text-3xl font-[300]'>
-        {title}
-      </h1>
+      <h1 className=' text-3xl font-[300]'>{title}</h1>
       <div className='text-xl mb-6'>
         ${product.variants[0].price.amount} USD
       </div>
