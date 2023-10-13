@@ -19,7 +19,7 @@ export default function Index() {
         trigger: '#bg',
         scrub: true,
         start: 'top top',
-        end: isMobile ? '+=20' : '+=500px',
+        end: isMobile ? '+=200' : '+=500px',
       },
     });
 
