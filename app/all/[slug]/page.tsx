@@ -17,8 +17,11 @@ async function page({ params }: { params: { slug: string } }) {
 
     return (
       <>
-        <div className='max-w-7xl  mx-auto  grid grid-cols-5 gap-3 mt-6'>
-          <Images images={images as string[]} />
+        <div className='max-w-7xl  mx-auto    md:grid md:grid-cols-5 gap-3  mt-6'>
+          <Images
+            images={images as string[]}
+            title={product?.title as string}
+          />
           <Details product={product as Product} />
           <RecommendedProducts data={recommended} />
         </div>

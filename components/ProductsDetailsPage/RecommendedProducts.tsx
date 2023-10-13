@@ -7,7 +7,7 @@ function RecommendedProducts({ data }: { data: Array<Product> }) {
   return (
     <div className=' col-span-5    flex flex-col  gap-10   mt-20  border-t p-10'>
       <p className='font-bold text-xl'>You May Also Like</p>
-      <div className='grid grid-cols-4 gap-5'>
+      <div className='grid md:grid-cols-4 grid-cols-2 gap-5'>
         {data.map((product, i) =>
           i < 4 ? (
             <div key={product.id}>
