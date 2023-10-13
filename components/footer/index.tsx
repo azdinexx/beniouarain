@@ -18,15 +18,15 @@ function Footer() {
   const policies = getAllPolicies();
   return (
     <footer className='w-full bg-amber-100/20 py-6 mt-20'>
-      <section className='container mx-auto grid grid-cols-4 gap-5 mt-5 mb-10 place-items-center'>
-        <div>
+      <section className='container mx-auto grid  grid-cols-2  md:grid-cols-4 gap-5 mt-5 mb-10 place-items-center'>
+        <div className='hidden md:block'>
           <span className={`text-3xl font-thin  ${font.className} uppercase`}>
             Handmade <br /> Moroccan <br /> Rugs
           </span>
         </div>
         <Brand />
         <ImportantLinks />
-        <div className='flex flex-col justify-center items-center gap-3'>
+        <div className='flex flex-col justify-center items-center gap-3 col-span-2 md:col-span-1 border p-2 rounded-lg text-stone-600'>
           <Link href={'/'}>
             <span className={`text-2xl  ${font.className} uppercase`}>
               BeniOuarain <br /> Rugs
@@ -36,7 +36,7 @@ function Footer() {
         </div>
       </section>
 
-      <section className='text-xs text-gray-400 flex py-4 justify-evenly max-w-5xl mx-auto mt-8 uppercase'>
+      <section className='text-xs text-gray-400 flex flex-wrap py-4 gap-3  justify-evenly max-w-5xl mx-auto mt-8 uppercase'>
         {policies.map((policy) => (
           <Link href={`/policies/${policy.id}`} key={policy.id}>
             <span className='hover:underline'>{policy.title}</span>
@@ -58,7 +58,7 @@ export default Footer;
 
 function SocialMedia() {
   return (
-    <div className='flex gap-4'>
+    <div className='flex gap-4  '>
       <Link href={'/'}>
         <Facebook />
       </Link>

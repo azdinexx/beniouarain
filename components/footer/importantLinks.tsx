@@ -23,7 +23,7 @@ const importantLinks = [
 ];
 function ImportantLinks() {
   return (
-    <section className='flex flex-col gap-3'>
+    <section className='  flex-col gap-3 hidden sm:flex'>
       <span className='text-lg font-bold '>Important Links</span>
       <ul>
         {importantLinks.map((link) => (

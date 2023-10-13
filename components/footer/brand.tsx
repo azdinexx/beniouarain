@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 function Brand() {
   return (
-    <section className='flex flex-col gap-3'>
+    <section className='flex flex-col gap-3 col-span-2 sm:col-span-1'>
       <Link href='/'>
         <span className='text-lg font-bold hover:underline '>
           BeniOuarain Rugs
