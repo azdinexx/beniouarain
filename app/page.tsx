@@ -3,13 +3,17 @@ import Description from '@/components/landing/description';
 import Intro from '@/components/landing/intro';
 import React from 'react';
 import { Locomotive } from './locomotive';
-
+import { isMobile } from 'react-device-detect';
 function Page() {
   return (
     <main>
       <Locomotive>
-        <Intro />
-        <Description />
+        {isMobile && (
+          <>
+            <Intro />
+            <Description />
+          </>
+        )}
         <Featured />
       </Locomotive>
     </main>

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { getProducts } from '@/lib/shopify';
 import { Product } from '@/lib/shopify/types';
 import { AddToCart } from '../cart/add-to-cart';
+import { isMobile } from 'react-device-detect';
 
 async function Featured() {
   const products = await getProducts({
@@ -22,8 +23,10 @@ async function Featured() {
       </h2>
       <section className='grid grid-cols-1 grid-rows-2     bg-amber-100/20'>
         {products.map((product, i) =>
-          product === null ? null : (
+          product === null ? null : isMobile ? (
             <Article key={product.id} product={product} reverse={i === 1} />
+          ) : (
+            <Article key={product.id} product={product} />
           )
         )}
       </section>
@@ -41,7 +44,7 @@ function Article({
   product: Product;
 }) {
   return (
-    <article className='grid grid-cols-2  '>
+    <article className='grid grid-cols-1 md:grid-cols-2  '>
       <div className={`${reverse && 'order-2'} flex flex-col gap-3 p-10`}>
         <h2 className='text-xl font-bold max-w-xs'>{product.title}</h2>
         <p className='py-3'>{product.description.substring(0, 320) + '...'}</p>
