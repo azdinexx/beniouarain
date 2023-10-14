@@ -8,6 +8,12 @@ import { isMobile } from 'react-device-detect';
 function Images({ images, title }: { images: Array<string>; title: string }) {
   const [currentImage, setCurrentImage] = React.useState(0);
 
+  /* handling image loading */
+  const [ImgIsLoaded, setImgIsLoaded] = React.useState(false);
+  const handleLoad = () => {
+    setImgIsLoaded(true);
+  };
+
   return (
     <div className=' md:col-span-3 flex flex-col gap-8'>
       <div className='h-[20rem] md:h-[35rem]  relative '>
@@ -15,12 +21,16 @@ function Images({ images, title }: { images: Array<string>; title: string }) {
 
         {/* Next Button */}
         <button
-          className='absolute top-1/2 right-10 w-10 h-10 bg-white  hover:opacity-70 rounded-full border flex justify-center items-center'
-          onClick={() =>
+          className={cn(
+            'absolute z-10 top-1/2 right-10 w-10 h-10 bg-white  hover:opacity-70 rounded-full border flex justify-center items-center',
+            !ImgIsLoaded && 'opacity-50 cursor-wait'
+          )}
+          onClick={() => {
             setCurrentImage((prev) =>
               prev === images.length - 1 ? 0 : prev + 1
-            )
-          }
+            );
+            setImgIsLoaded(false);
+          }}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -36,12 +46,16 @@ function Images({ images, title }: { images: Array<string>; title: string }) {
         </button>
         {/* Previous Button */}
         <button
-          className='absolute top-1/2 left-10 w-10 h-10 bg-white hover:opacity-70 rounded-full border flex justify-center items-center'
-          onClick={() =>
+          className={cn(
+            'absolute z-10 top-1/2 left-10 w-10 h-10 bg-white hover:opacity-70 rounded-full border flex justify-center items-center',
+            !ImgIsLoaded && 'opacity-50  cursor-wait'
+          )}
+          onClick={() => {
             setCurrentImage((prev) =>
               prev === 0 ? images.length - 1 : prev - 1
-            )
-          }
+            );
+            setImgIsLoaded(false);
+          }}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -55,12 +69,20 @@ function Images({ images, title }: { images: Array<string>; title: string }) {
             />
           </svg>
         </button>
+
+        {/* Placeholder */}
+        {!ImgIsLoaded && (
+          <div className='absolute top-0 left-0 w-full h-full bg-gray-100 flex justify-center items-center'>
+            <div className='w-10 h-10 border-4 border-gray-300 rounded-full animate-spin'></div>
+          </div>
+        )}
         <Image
           src={images[currentImage]}
           alt='product'
           className='w-full h-full object-contain '
           width={1000}
           height={1000}
+          onLoad={handleLoad}
         />
       </div>
 
@@ -76,7 +98,10 @@ function Images({ images, title }: { images: Array<string>; title: string }) {
                   ? 'ring-2 ring-offset-3 ring-amber-500   brightness-125  scale-100 filter-none '
                   : ''
               )}
-              onClick={() => setCurrentImage(index)}
+              onClick={() => {
+                setCurrentImage(index);
+                setImgIsLoaded(false);
+              }}
             >
               <Image
                 src={image}

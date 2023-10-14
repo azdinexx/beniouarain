@@ -10,6 +10,7 @@ import {
 } from '@/lib/shopify';
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export async function addItem(
   prevState: any,
@@ -91,4 +92,27 @@ export async function updateItemQuantity(
   } catch (e) {
     return 'Error updating item quantity';
   }
+}
+
+export async function buyitnow(id: string) {
+  let cartId = cookies().get('cartId')?.value;
+  let cart;
+
+  if (cartId) {
+    cart = await getCart(cartId);
+  }
+
+  if (!cartId || !cart) {
+    cart = await createCart();
+    cartId = cart.id;
+    cookies().set('cartId', cartId);
+  }
+  const carto = await addToCart(cartId, [
+    {
+      merchandiseId: id,
+      quantity: 1,
+    },
+  ]);
+
+  redirect(`${carto.checkoutUrl}`);
 }

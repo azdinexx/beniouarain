@@ -4,6 +4,7 @@ import Intro from '@/components/landing/intro';
 import React from 'react';
 import { Locomotive } from './locomotive';
 import { isMobile } from 'react-device-detect';
+import NewsLetter from '@/components/newsletter';
 function Page() {
   return (
     <main>
@@ -15,6 +16,7 @@ function Page() {
           </>
         )}
         <Featured />
+        <NewsLetter />
       </Locomotive>
     </main>
   );

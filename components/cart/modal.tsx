@@ -96,7 +96,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       );
 
                       const merchandiseUrl = createUrl(
-                        `/product/${item.merchandise.product.handle}`,
+                        `/all/${item.merchandise.product.handle}`,
                         new URLSearchParams(merchandiseSearchParams)
                       );
 
@@ -131,7 +131,10 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
 
                               <div className='flex flex-1 flex-col text-base'>
                                 <span className='leading-tight'>
-                                  {item.merchandise.product.title}
+                                  {item.merchandise.product.title.substring(
+                                    0,
+                                    40
+                                  ) + '...'}
                                 </span>
                                 {item.merchandise.title !== DEFAULT_OPTION ? (
                                   <p className='text-sm text-neutral-500 dark:text-neutral-400'>
