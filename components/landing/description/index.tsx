@@ -65,9 +65,5 @@ function AnimatedText({ children }: { children: string }) {
     });
   }, []);
 
-  return (
-    <p ref={text} data-scroll data-scroll-speed='0.4'>
-      {children}
-    </p>
-  );
+  return <p ref={text}>{children}</p>;
 }
