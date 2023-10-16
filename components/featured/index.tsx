@@ -10,10 +10,8 @@ async function Featured() {
     query: 'tag:featured AND tag:authentic_rug',
   });
 
-  console.log(products.length);
-
   return (
-    <div className='max-w-5xl mx-auto my-48 pattern'>
+    <div className='max-w-5xl mx-auto md:my-48 pattern ring'>
       <h2
         className='font-bold text-4xl mb-5 max-w-sm'
         data-scroll
