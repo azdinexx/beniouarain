@@ -25,7 +25,7 @@ export default function Index() {
       },
       opacity: 0,
       right: '-200px',
-      rotation: 90,
+      rotation: 180,
       ease: 'power3.Out',
     });
   }, []);
