@@ -21,7 +21,7 @@ export default function Index() {
         trigger: RightImage.current,
         scrub: true,
         start: '0px bottom',
-        end: 'bottom+=400px bottom',
+        end: 'bottom+=800px bottom',
       },
       opacity: 0,
       right: '-200px',
