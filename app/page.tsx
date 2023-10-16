@@ -7,14 +7,14 @@ import { isMobile } from 'react-device-detect';
 function Page() {
   return (
     <main>
-      {!isMobile ? (
+      {isMobile ? (
+        <div>hello</div>
+      ) : (
         <Locomotive>
           <Intro />
           <Description />
           <Featured />
         </Locomotive>
-      ) : (
-        <div>hello</div>
       )}
     </main>
   );
