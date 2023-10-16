@@ -3,6 +3,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 import styles from './style.module.css';
+import Image from 'next/image';
 
 const phrases = [
   'Handmade rugs from Morocco',
@@ -13,11 +14,35 @@ const phrases = [
 ];
 
 export default function Index() {
+  const RightImage = useRef(null);
+  useLayoutEffect(() => {
+    gsap.from(RightImage.current, {
+      scrollTrigger: {
+        trigger: RightImage.current,
+        scrub: true,
+        start: '0px bottom',
+        end: 'bottom+=400px bottom',
+      },
+      opacity: 0,
+      right: '-200px',
+      ease: 'power3.Out',
+    });
+  }, []);
+
   return (
     <div className={styles.description}>
       {phrases.map((phrase, index) => {
         return <AnimatedText key={index}>{phrase}</AnimatedText>;
       })}
+
+      <Image
+        ref={RightImage}
+        width={500}
+        height={500}
+        alt=''
+        src={'/images/pouf.png'}
+        className='absolute top-0 right-0 z-100'
+      />
     </div>
   );
 }
