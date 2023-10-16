@@ -1,7 +1,8 @@
+import LoadingPage from '@/components/LoadingPage';
 import React from 'react';
 
 function loading() {
-  return <div className=' w-screen h-screen absolute inset-0'>loading...</div>;
+  return <LoadingPage className=' h-screen' />;
 }
 
 export default loading;
