@@ -3,19 +3,18 @@ import Description from '@/components/landing/description';
 import Intro from '@/components/landing/intro';
 import React from 'react';
 import { Locomotive } from './locomotive';
-import { isMobile } from 'react-device-detect';
+import { BrowserView, MobileOnlyView } from 'react-device-detect';
 function Page() {
   return (
     <main>
-      {isMobile ? (
-        <div>hello</div>
-      ) : (
+      <BrowserView>
         <Locomotive>
           <Intro />
           <Description />
           <Featured />
         </Locomotive>
-      )}
+      </BrowserView>
+      <MobileOnlyView>mobile</MobileOnlyView>
     </main>
   );
 }
