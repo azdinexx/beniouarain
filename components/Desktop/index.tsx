@@ -8,10 +8,11 @@ import { isMobile } from 'react-device-detect';
 const ComponentB = dynamic(() => import('./Desktop'));
 
 export default function ClientComponentExample() {
+  console.log(window.navigator.userAgent);
   return (
     <>
       {/* Load on demand, only when/if the condition is met */}
-      {isMobile && <ComponentB />}
+      {!isMobile && <ComponentB />}
     </>
   );
 }
