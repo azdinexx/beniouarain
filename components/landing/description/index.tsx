@@ -8,9 +8,9 @@ import Image from 'next/image';
 const phrases = [
   'Handmade rugs from Morocco',
   'Marrakesh Made ',
-  'The High Atlas Mountains Production',
+  'The High Atlas Mountains ',
   'Tailored to your needs',
-  '740 Years of Poufs Artisan',
+  'Moroccan artisans',
 ];
 
 export default function Index() {
@@ -23,7 +23,6 @@ export default function Index() {
         start: '0px bottom',
         end: 'bottom+=800px bottom',
       },
-      opacity: 0,
       right: '-200px',
       rotation: 180,
       ease: 'power3.Out',
