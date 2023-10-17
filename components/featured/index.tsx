@@ -11,7 +11,7 @@ async function Featured() {
   });
 
   return (
-    <div className='max-w-5xl mx-auto md:my-48 pattern ring'>
+    <div className='max-w-5xl mx-auto md:my-48 pattern  '>
       <h2
         className='font-bold text-4xl mb-5 max-w-sm'
         data-scroll
