@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import Header from '../components/header';
 import Footer from '@/components/footer';
 import Announcement from '../components/anouncement';
+import { Locomotive } from '@/components/shared/locomotive';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Announcement />
         <Header />
-        <div className='container mx-auto'>{children}</div>
+        <Locomotive>{children}</Locomotive>
         <Footer />
       </body>
     </html>

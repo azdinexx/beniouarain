@@ -1,17 +1,8 @@
-'use client';
 import React from 'react';
-import { useEffect } from 'react';
 import Link from 'next/link';
 import { getAllPolicies } from '@/utils/getPolicies';
 
 function Page() {
-  useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import('locomotive-scroll')).default;
-      const locomotiveScroll = new LocomotiveScroll();
-    })();
-  }, []);
-
   const policies = getAllPolicies();
   return (
     <main className='container p-20 '>

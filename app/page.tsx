@@ -1,4 +1,3 @@
-import MobileOrDesktop from '@/components/Desktop';
 import Desktop from '@/components/Desktop/Desktop';
 import Collections from '@/components/Mobile/Collections';
 import Carousel from '@/components/Mobile/carousel';
@@ -13,7 +12,7 @@ async function Page() {
   const collections = await getCollections();
 
   return (
-    <main>
+    <main className='container mx-auto'>
       <div className='hidden md:block'>
         <Desktop />
       </div>
