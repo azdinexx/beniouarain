@@ -15,17 +15,17 @@ function Card({ title, handle, price, images }: Props) {
   return (
     <Link href={'all/' + handle}>
       <div
-        className='group p-2 hover:ring-1     hover:shadow-lg transition duration-300 ease-in-out   flex flex-col justify-between rounded-xl hover:scale-110'
+        className='group p-2 md:hover:ring-1     md:hover:shadow-lg transition duration-300 ease-in-out   flex flex-col justify-between rounded-xl md:hover:scale-110'
         onMouseEnter={() => setCurrentImage(1)}
         onMouseLeave={() => setCurrentImage(0)}
       >
-        <div className='w-full aspect-square group-hover:rounded-md rounded-[3px] overflow-hidden'>
+        <div className='w-full aspect-square md:group-hover:rounded-md rounded-[3px] overflow-hidden'>
           <Image
             src={images[currentImage].url}
             alt={title}
             width={700}
             height={700}
-            className='w-full h-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110'
+            className='w-full h-full object-cover transition-all duration-300 ease-in-out md:group-hover:scale-110'
             loading='eager'
           />
         </div>
@@ -35,7 +35,7 @@ function Card({ title, handle, price, images }: Props) {
           <div className='flex gap-3'>
             {/* the add to cart button */}
 
-            <button className='w-10 h-10   rounded-full flex justify-center items-center text-transparent group-hover:text-amber-900 hover:bg-amber-900/10  '>
+            <button className='w-10 h-10   rounded-full flex justify-center items-center text-transparent md:group-hover:text-amber-900 hover:bg-amber-900/10  '>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='26'
@@ -50,13 +50,13 @@ function Card({ title, handle, price, images }: Props) {
             </button>
             {/* the arrow button */}
 
-            <button className='w-10 h-10   rounded-full flex justify-center items-center text-amber-300/40 group-hover:text-amber-400 group-hover:bg-amber-100  hover:bg-amber-300/10 '>
+            <button className='w-10 h-10   rounded-full flex justify-center items-center text-amber-300/40 md:group-hover:text-amber-400 md:group-hover:bg-amber-100  hover:bg-amber-300/10 '>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='26'
                 height='26'
                 viewBox='0 0 24 24'
-                className='group-hover:-rotate-45 transition duration-300 ease-in-out'
+                className='md:group-hover:-rotate-45 transition duration-300 ease-in-out'
               >
                 <path
                   fill='currentColor'
