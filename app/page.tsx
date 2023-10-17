@@ -13,7 +13,7 @@ async function Page() {
   const collections = await getCollections();
 
   return (
-    <main className='container mx-auto'>
+    <>
       <div className='hidden md:block'>
         <Desktop />
       </div>
@@ -25,7 +25,7 @@ async function Page() {
         <Featured />
       </div>
       <Features />
-    </main>
+    </>
   );
 }
 
