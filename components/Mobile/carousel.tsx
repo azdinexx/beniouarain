@@ -4,6 +4,9 @@ import Image from 'next/image';
 import cn from '@/lib/merge';
 import { Product } from '@/lib/shopify/types';
 import LoadingDots from '../loading-dots';
+import { addToCart } from '@/lib/shopify';
+import { AddToCart } from '../cart/add-to-cart';
+import ServerCode from '../serverCode';
 
 interface Props {
   products: Product[];
@@ -20,7 +23,7 @@ function Carousel({ products }: Props) {
 
   if (!isclient) return null;
   return (
-    <div className=' my-3 relative flex flex-col'>
+    <div className='   md:hidden my-3 relative flex flex-col'>
       {/* Controllers */}
       <Controllers
         currentSlide={currentSlide}

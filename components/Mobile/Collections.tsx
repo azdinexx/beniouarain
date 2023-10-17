@@ -6,7 +6,7 @@ interface Props {
 }
 function Collections({ collections }: Props) {
   return (
-    <section className='grid grid-cols-2 py-3 gap-3 p-4'>
+    <section className='md:hidden  grid grid-cols-2 py-3 gap-3 p-4'>
       {collections.map((collection) =>
         collection.handle === '' ? null : (
           <div
