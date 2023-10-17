@@ -14,6 +14,9 @@ export function Locomotive({ children }: { children: React.ReactNode }) {
           const LocomotiveScroll = (await import('locomotive-scroll')).default;
           const scroll = new LocomotiveScroll({
             smooth: true,
+            smartphone: {
+              smooth: false,
+            },
           });
         })();
   }, [pathname]);
