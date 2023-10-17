@@ -1,4 +1,5 @@
 import { Collection } from '@/lib/shopify/types';
+import Link from 'next/link';
 import React from 'react';
 
 interface Props {
@@ -10,20 +11,27 @@ function Collections({ collections }: Props) {
     <section className='md:hidden  grid grid-cols-2 py-3 gap-3 p-4'>
       {collections.map((collection) =>
         collection.handle === '' ? null : (
-          <div
+          <Link
+            href={'/collections/' + collection.handle}
             key={collection.path}
-            style={{
-              backgroundImage: `url(${
-                '/collections/' + collection.handle + '.jpg'
-              })`,
-            }}
-            className='bg-cover bg-center bg-no-repeat aspect-square flex items-center justify-center text-2xl font-semibold text-white rounded-lg'
           >
-            <p className='max-w-[100px] text-center'>{collection.title}</p>
-          </div>
+            <div
+              style={{
+                backgroundImage: `url(${
+                  '/collections/' + collection.handle + '.jpg'
+                })`,
+              }}
+              className='bg-cover bg-center bg-no-repeat aspect-square flex items-center justify-center text-2xl font-semibold text-white rounded-lg'
+            >
+              <p className='max-w-[100px] text-center'>{collection.title}</p>
+            </div>
+          </Link>
         )
       )}
-      <div className='  flex items-center justify-center text-2xl font-semibold text-white rounded-lg bg-amber-400'>
+      <Link
+        href='/collections'
+        className='  flex items-center justify-center text-2xl font-semibold text-white rounded-lg bg-amber-400'
+      >
         See All
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -36,7 +44,7 @@ function Collections({ collections }: Props) {
             d='M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4L6.4 18Z'
           />
         </svg>
-      </div>
+      </Link>
     </section>
   );
 }

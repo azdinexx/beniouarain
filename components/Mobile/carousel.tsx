@@ -4,6 +4,7 @@ import Image from 'next/image';
 import cn from '@/lib/merge';
 import { Product } from '@/lib/shopify/types';
 import LoadingDots from '../loading-dots';
+import Link from 'next/link';
 
 interface Props {
   products: Product[];
@@ -44,18 +45,32 @@ function Carousel({ products }: Props) {
       {loading ? (
         <>
           <TextLoading />
-          <button className=' px-4 py-2  mx-auto bg-amber-400 rounded-full animate-pulse opacity-70'>
-            Add To Cart
-          </button>
+
+          <div className='flex gap-2 justify-center my-2'>
+            <button className='px-5 py-2  text-white bg-amber-400 rounded-s-full animate-pulse opacity-70'>
+              Add To Cart
+            </button>
+            <button className='px-5 py-2   border border-amber-400 rounded-e-full animate-pulse opacity-70'>
+              All Products
+            </button>
+          </div>
         </>
       ) : (
         <>
           <h1 className={'m-3   text-gray-800'}>
             {products[currentSlide].title}
           </h1>
-          <button className=' px-5 py-2  mx-auto bg-amber-400 rounded-full'>
-            Add To Cart
-          </button>
+          <div className='flex gap-2 justify-center my-2'>
+            <button className=' px-5 py-2 text-white  bg-amber-400 rounded-s-full'>
+              Add To Cart
+            </button>
+            <Link
+              href='/all'
+              className=' px-5 py-2 border   border-amber-400 rounded-e-full'
+            >
+              All Products
+            </Link>
+          </div>
         </>
       )}
     </div>

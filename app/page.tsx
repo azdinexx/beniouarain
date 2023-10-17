@@ -2,9 +2,10 @@ import Desktop from '@/components/Desktop/Desktop';
 import Collections from '@/components/Mobile/Collections';
 import Carousel from '@/components/Mobile/carousel';
 import Featured from '@/components/featured';
+import Features from '@/components/shared/features';
 import { getCollections, getProducts } from '@/lib/shopify';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 async function Page() {
   const Carousel_products = await getProducts({
     query: 'tag:authentic_rug',
@@ -17,10 +18,13 @@ async function Page() {
         <Desktop />
       </div>
       <Carousel products={Carousel_products} />
-      <Collections collections={collections} />
+      <Suspense fallback={'hello'}>
+        <Collections collections={collections} />
+      </Suspense>
       <div className='hidden md:block'>
         <Featured />
       </div>
+      <Features />
     </main>
   );
 }
