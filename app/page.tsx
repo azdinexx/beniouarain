@@ -1,6 +1,8 @@
 import MobileOrDesktop from '@/components/Desktop';
+import Desktop from '@/components/Desktop/Desktop';
 import Collections from '@/components/Mobile/Collections';
 import Carousel from '@/components/Mobile/carousel';
+import Featured from '@/components/featured';
 import { getCollections, getProducts } from '@/lib/shopify';
 
 import React from 'react';
@@ -12,9 +14,14 @@ async function Page() {
 
   return (
     <main>
-      <MobileOrDesktop />
+      <div className='hidden md:block'>
+        <Desktop />
+      </div>
       <Carousel products={Carousel_products} />
       <Collections collections={collections} />
+      <div className='hidden md:block'>
+        <Featured />
+      </div>
     </main>
   );
 }
