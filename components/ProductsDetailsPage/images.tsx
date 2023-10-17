@@ -86,13 +86,41 @@ function Images({ images, title }: { images: Array<string>; title: string }) {
         />
       </div>
 
+      <Track
+        images={images}
+        currentImage={currentImage}
+        setCurrentImage={setCurrentImage}
+        setImgIsLoaded={setImgIsLoaded}
+      />
+    </div>
+  );
+}
+
+export default Images;
+
+function Track({
+  images,
+  currentImage,
+  setCurrentImage,
+  setImgIsLoaded,
+}: {
+  images: string[];
+  currentImage: number;
+  setCurrentImage: React.Dispatch<React.SetStateAction<number>>;
+  setImgIsLoaded: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  const initialState = Array(images.length).fill(true);
+  const [Loading, setLoading] = React.useState(initialState);
+
+  return (
+    <>
       {isMobile ? null : (
         <div className=' grid grid-cols-4 gap-10 py-4 px-3 md:px-0 '>
           {images.map((image, index) => (
             <div
               key={index}
               className={cn(
-                'aspect-square cursor-pointer  h-full  rounded-lg scale-90 overflow-hidden transition duration-150 ease-in-out blur-sm',
+                'aspect-square cursor-pointer  h-full  rounded-lg scale-90 overflow-hidden transition duration-150 ease-in-out blur-sm relative',
 
                 currentImage === index
                   ? 'ring-2 ring-offset-3 ring-amber-500   brightness-125  scale-100 filter-none '
@@ -103,19 +131,26 @@ function Images({ images, title }: { images: Array<string>; title: string }) {
                 setImgIsLoaded(false);
               }}
             >
+              {Loading[index] && (
+                <div className='text-transparent absolute top-0 left-0 w-full h-full bg-gray-200 animate-pulse'>
+                  this text is meant to be hidden
+                </div>
+              )}
+
               <Image
                 src={image}
                 alt='product'
                 className='w-full h-full object-cover'
                 height={200}
                 width={200}
+                onLoad={() => {
+                  setLoading(Loading.map((_, i) => (i === index ? false : _)));
+                }}
               />
             </div>
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }
-
-export default Images;
