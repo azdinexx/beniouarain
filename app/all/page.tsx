@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Hero from '@/components/ProductsPage/hero';
 
 import Card from '@/components/ProductsPage/product-card';
@@ -23,13 +23,14 @@ async function ProductList() {
         ) : (
           data.map((product: Product) => {
             return (
-              <Card
-                key={product.id}
-                title={product.title}
-                images={product.images.map((image) => image)}
-                handle={product.handle}
-                price={product.variants[0].price.amount}
-              />
+              <Suspense fallback={'hello'} key={product.id}>
+                <Card
+                  title={product.title}
+                  images={product.images.map((image) => image)}
+                  handle={product.handle}
+                  price={product.variants[0].price.amount}
+                />
+              </Suspense>
             );
           })
         )}

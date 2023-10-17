@@ -2,7 +2,7 @@
 import { Image as Img } from '@/lib/shopify/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 interface Props {
   title: string;
@@ -11,7 +11,12 @@ interface Props {
   images: Img[];
 }
 function Card({ title, handle, price, images }: Props) {
-  const [currentImage, setCurrentImage] = React.useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  const handleLoad = () => {
+    setLoading(false);
+  };
   return (
     <Link href={'all/' + handle}>
       <div
@@ -19,14 +24,20 @@ function Card({ title, handle, price, images }: Props) {
         onMouseEnter={() => setCurrentImage(1)}
         onMouseLeave={() => setCurrentImage(0)}
       >
-        <div className='w-full aspect-square md:group-hover:rounded-md rounded-[3px] overflow-hidden'>
+        <div className='w-full relative aspect-square md:group-hover:rounded-md rounded-[3px] overflow-hidden'>
+          {loading && (
+            <div className='absolute text-transparent top-0 left-0 animate-pulse bg-gray-50 w-full h-full'>
+              this text is hidden
+            </div>
+          )}
           <Image
             src={images[currentImage].url}
             alt={title}
             width={700}
             height={700}
             className='w-full h-full object-cover transition-all duration-300 ease-in-out md:group-hover:scale-110'
-            loading='eager'
+            loading='lazy'
+            onLoad={handleLoad}
           />
         </div>
         <p className='mt-2 leading-5'>{title.substring(0, 45) + '..'}</p>
