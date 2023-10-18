@@ -8,7 +8,7 @@ async function page() {
   const collections = await getCollections();
 
   return (
-    <main className='grid grid-cols-1 md:grid-cols-2 gap-8 '>
+    <main className='grid grid-cols-1 md:grid-cols-2 p-3 md:px-0  gap-8 '>
       {collections.length > 0 &&
         collections.map(
           (item, index) =>

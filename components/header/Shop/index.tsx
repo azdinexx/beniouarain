@@ -1,10 +1,7 @@
 'use client';
 import React from 'react';
 import { useState, useEffect } from 'react';
-
-import Link from 'next/link';
 import { Collection } from '@/lib/shopify/types';
-import ShopCard from './shop-card';
 import Image from 'next/image';
 
 function Shop({
@@ -64,7 +61,7 @@ function Shop({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <section className='grid h-48 grid-cols-5 gap-5 mt-6 grid-rows-1   place-content-end text-3xl   px-3'>
+        <section className='grid h-48 grid-cols-5 gap-5 mt-6 grid-rows-1    place-content-end text-3xl   px-3'>
           {loading
             ? Array(3)
                 .fill(true)

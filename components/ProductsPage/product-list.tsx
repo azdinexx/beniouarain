@@ -80,9 +80,10 @@ function Hero({
 }: {
   setQuery: React.Dispatch<React.SetStateAction<QUERY_OBJ>>;
 }) {
+  let initialState = Array(filters.length).fill(false);
   return (
     <section>
-      <h2 className='my-3 text-5xl  '>All Products </h2>
+      <h2 className='my-8 text-5xl  '>All Products </h2>
 
       <div>
         <p>filter by </p>
@@ -90,7 +91,7 @@ function Hero({
           {filters.map((filter) => {
             return (
               <button
-                className='border px-6 py-3 rounded-xl uppercase'
+                className='border px-4 py-1 rounded-full  capitalize bg-gray-50'
                 onClick={() => {
                   setQuery(filter.query);
                 }}

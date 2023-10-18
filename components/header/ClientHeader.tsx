@@ -1,8 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import Shop from './Shop';
-import Dropdown from './dropdown';
-import Li from './Li';
 import Link from 'next/link';
 import { Collection } from '@/lib/shopify/types';
 
@@ -26,8 +24,8 @@ function ClientHeader({
     setIsOpen(false);
   };
   return (
-    <>
-      <details className=' ' open={isOpen} ref={detailsRef}>
+    <div className=' col-span-2 flex  '>
+      <details open={isOpen} ref={detailsRef}>
         <summary
           ref={summaryRef}
           className='mr-3  cursor-pointer flex md:hidden border rounded-lg items-center justify-center w-full h-full  '
@@ -59,9 +57,6 @@ function ClientHeader({
           ))}
         </ul>
       </details>
-      <Link href={'/'} className='flex items-center ml-3 mr-auto' replace>
-        <div className='font-[200] text-2xl '>BENIOUARAIN</div>
-      </Link>
 
       <nav className='hidden md:flex items-center mr-auto ml-20 text-sm '>
         <ul className='flex items-center gap-6'>
@@ -73,7 +68,7 @@ function ClientHeader({
           <Shop getCollections={getCollections} />
         </ul>
       </nav>
-    </>
+    </div>
   );
 }
 

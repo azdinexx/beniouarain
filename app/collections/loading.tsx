@@ -3,7 +3,7 @@ const dd = [1, 0, 1];
 
 function loading() {
   return (
-    <div className='grid grid-cols-2 gap-4'>
+    <div className='grid grid-cols-1 px-3 md:px-0 md:grid-cols-2 gap-4'>
       {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
         return (
           <div
