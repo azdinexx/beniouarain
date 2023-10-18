@@ -1,50 +1,27 @@
 import React, { Suspense } from 'react';
-import Hero from '@/components/ProductsPage/hero';
-
-import Card from '@/components/ProductsPage/product-card';
 import { getProducts } from '@/lib/shopify';
 
-import { Product } from '@/lib/shopify/types';
+import ProductList from '@/components/ProductsPage/product-list';
 
-async function ProductList() {
-  const data = await getProducts({
-    query: 'title: "rug" OR "blanket"',
-    sortKey: 'PRICE',
-  });
+async function Page() {
+  async function GET_PRODUCTS({
+    query,
+    sortKey,
+    reverse,
+  }: {
+    query?: string;
+    sortKey?: string;
+    reverse?: boolean;
+  }) {
+    'use server';
+    return getProducts({ query, sortKey, reverse });
+  }
 
   return (
     <div className='flex flex-col p-3 md:p-0'>
-      <Hero />
-
-      <p className='mt-2 text-gray-500'>{data.length} products</p>
-      <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
-        {data.length === 0 ? (
-          <div className='text-center'>No products found</div>
-        ) : (
-          data.map((product: Product) => {
-            return (
-              <Suspense fallback={'hello'} key={product.id}>
-                <Card
-                  title={product.title}
-                  images={product.images.map((image) => image)}
-                  handle={product.handle}
-                  price={product.variants[0].price.amount}
-                />
-              </Suspense>
-            );
-          })
-        )}
-      </div>
-      <div className='flex items-center justify-center gap-5'>
-        <button className='bg-gray-200 py-2 px-4 rounded-full hover:bg-gray-400  '>
-          Next
-        </button>
-        <button className='bg-gray-200 py-2 px-4 rounded-full hover:bg-gray-400  '>
-          Prev
-        </button>
-      </div>
+      <ProductList getProducts={GET_PRODUCTS} />
     </div>
   );
 }
 
-export default ProductList;
+export default Page;

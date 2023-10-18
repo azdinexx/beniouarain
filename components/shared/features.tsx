@@ -28,9 +28,9 @@ interface CardProps {
   key?: string;
 }
 
-function FeatureCard({ title, description, image, key }: CardProps) {
+function FeatureCard({ title, description, image }: CardProps) {
   return (
-    <li className='flex flex-col  ' key={key}>
+    <li className='flex flex-col  '>
       <div className=' w-full md:w-[70%] md:mx-auto aspect-square overflow-hidden flex items-center justify-center'>
         <Image
           width={600}

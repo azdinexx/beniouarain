@@ -4,6 +4,7 @@ import Carousel from '@/components/Mobile/carousel';
 import Featured from '@/components/featured';
 import Features from '@/components/shared/features';
 import { getCollections, getProducts } from '@/lib/shopify';
+import { Locomotive } from '@/components/shared/locomotive';
 
 import React, { Suspense } from 'react';
 async function Page() {
@@ -13,8 +14,8 @@ async function Page() {
   const collections = await getCollections();
 
   return (
-    <>
-      <div className='hidden md:block'>
+    <Locomotive>
+      <div className='hidden md:block' id='main'>
         <Desktop />
       </div>
       <Carousel products={Carousel_products} />
@@ -25,7 +26,7 @@ async function Page() {
         <Featured />
       </div>
       <Features />
-    </>
+    </Locomotive>
   );
 }
 

@@ -7,11 +7,16 @@ import { isMobile } from 'react-device-detect';
 import Link from 'next/link';
 
 function Images({ images, title }: { images: Array<string>; title: string }) {
-  const pathname = window.location.pathname;
+  const [isClient, setIsClient] = React.useState(false);
   const [currentImage, setCurrentImage] = React.useState(0);
+  const [ImgIsLoaded, setImgIsLoaded] = React.useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  if (!isClient || !images) return null;
+  const pathname = window.location.pathname;
 
   /* handling image loading */
-  const [ImgIsLoaded, setImgIsLoaded] = React.useState(false);
   const handleLoad = () => {
     setImgIsLoaded(true);
   };

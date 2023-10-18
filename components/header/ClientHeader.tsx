@@ -54,19 +54,15 @@ function ClientHeader() {
           ))}
         </ul>
       </details>
-      <Link href={'/'} className='flex items-center ml-3 mr-auto'>
+      <Link href={'/'} className='flex items-center ml-3 mr-auto' replace>
         <div className='font-[200] text-2xl '>BENIOUARAIN</div>
       </Link>
 
       <nav className='hidden md:flex items-center mr-auto ml-20 text-sm '>
         <ul className='flex items-center gap-6'>
-          {nav.map((item) =>
-            item.items ? (
-              <Dropdown key={item.title} item={item} />
-            ) : (
-              <Li key={item.title} text={item.title} href={item.href} />
-            )
-          )}
+          {nav.map((item) => (
+            <Li key={item.title} text={item.title} href={item.href} />
+          ))}
 
           {/* SHOP */}
           <Shop />
@@ -89,17 +85,7 @@ const nav: NavItem[] = [
   { title: 'blog', href: '/blog' },
   { title: 'collections', href: '/collections' },
   {
-    title: 'pages',
-    href: '/about-us',
-    items: [
-      {
-        title: 'About us',
-        href: '/about-us',
-      },
-      {
-        title: 'Contact us',
-        href: '/contact-us',
-      },
-    ],
+    title: 'about',
+    href: '/about',
   },
 ];

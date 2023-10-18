@@ -5,7 +5,7 @@ import React from 'react';
 import { getProduct, getProducts } from '@/lib/shopify';
 import { Product } from '@/lib/shopify/types';
 
-async function page({ params }: { params: { slug: string } }) {
+async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
   try {
     const product = await getProduct(slug);
@@ -15,8 +15,31 @@ async function page({ params }: { params: { slug: string } }) {
     });
     const images = product?.images.map((img) => img.url);
 
+    const productJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: product?.title,
+      description: product?.description,
+      image: product?.featuredImage.url,
+      offers: {
+        '@type': 'AggregateOffer',
+        availability: product?.availableForSale
+          ? 'https://schema.org/InStock'
+          : 'https://schema.org/OutOfStock',
+        priceCurrency: product?.priceRange.minVariantPrice.currencyCode,
+        highPrice: product?.priceRange.maxVariantPrice.amount,
+        lowPrice: product?.priceRange.minVariantPrice.amount,
+      },
+    };
+
     return (
       <>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(productJsonLd),
+          }}
+        />
         <div className='max-w-7xl  mx-auto    md:grid md:grid-cols-5 gap-3  mt-6'>
           <Images
             images={images as string[]}
@@ -32,4 +55,4 @@ async function page({ params }: { params: { slug: string } }) {
   }
 }
 
-export default page;
+export default Page;

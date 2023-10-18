@@ -4,6 +4,7 @@ import { Product } from '@/lib/shopify/types';
 import BuyItNow from './BuyItNow';
 
 function Details({ product }: { product: Product }) {
+  if (!product) return null;
   const { title, description, id } = product;
 
   return (

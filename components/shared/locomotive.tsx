@@ -6,15 +6,17 @@ import { useEffect } from 'react';
 export function Locomotive({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import('locomotive-scroll')).default;
-      const scroll = new LocomotiveScroll({
-        smooth: true,
-        smartphone: {
-          smooth: false,
-        },
-      });
-    })();
+    if (pathname === '/') {
+      (async () => {
+        const LocomotiveScroll = (await import('locomotive-scroll')).default;
+        const scroll = new LocomotiveScroll({
+          smooth: true,
+          smartphone: {
+            smooth: false,
+          },
+        });
+      })();
+    } else;
   }, [pathname]);
   return <div>{children}</div>;
 }
