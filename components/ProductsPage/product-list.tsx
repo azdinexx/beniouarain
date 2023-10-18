@@ -31,7 +31,15 @@ function ProductList({ getProducts }: ProductListProps) {
   if (loading) {
     return (
       <>
-        <p className='mt-2 text-gray-500'>{data.length} products</p>
+        <p className='mt-2 text-gray-500 flex gap-2'>
+          {' '}
+          <span className='text-transparent bg-gray-400/30  animate-pulse rounded-lg'>
+            10
+          </span>
+          <span className=' bg-gray-100 rounded-xl text-transparent animate-pulse'>
+            products
+          </span>
+        </p>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
           {Dummy.map((_, i) => {
             return <CardSkeleton key={i} />;
