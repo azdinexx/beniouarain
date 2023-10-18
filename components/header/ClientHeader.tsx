@@ -4,8 +4,13 @@ import Shop from './Shop';
 import Dropdown from './dropdown';
 import Li from './Li';
 import Link from 'next/link';
+import { Collection } from '@/lib/shopify/types';
 
-function ClientHeader() {
+function ClientHeader({
+  getCollections,
+}: {
+  getCollections: () => Promise<Collection[]>;
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const summaryRef = React.useRef<HTMLDetailsElement>(null);
@@ -65,7 +70,7 @@ function ClientHeader() {
           ))}
 
           {/* SHOP */}
-          <Shop />
+          <Shop getCollections={getCollections} />
         </ul>
       </nav>
     </>

@@ -1,12 +1,20 @@
 'use client';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import ShopCard from './shop-card';
-import Link from 'next/link';
 
-function Shop() {
+import Link from 'next/link';
+import { Collection } from '@/lib/shopify/types';
+import ShopCard from './shop-card';
+
+function Shop({
+  getCollections,
+}: {
+  getCollections: () => Promise<Collection[]>;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
+  const [collections, setCollections] = useState<Collection[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const handleMouseEnter = () => {
     setIsOpen(true);
@@ -34,12 +42,15 @@ function Shop() {
       }
     };
   }, [timeoutId]);
+
+  useEffect(() => {
+    getCollections().then((collections) => {
+      setCollections(collections);
+      setLoading(false);
+    });
+  });
   return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={() => setIsOpen(!isOpen)}
-    >
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <button className='bg-amber-200/20 px-4 py-1 text-amber-900 active:scale-95'>
         Shop
       </button>
@@ -48,22 +59,51 @@ function Shop() {
           isOpen
             ? 'opacity-100 translate-y-0  scale-100'
             : 'opacity-0 -translate-y-8 pointer-events-none scale-75'
-        } transition-transform  duration-100 ease-in-out z-10 flex flex-col`}
+        } transition-transform  duration-100 ease-in-out z-[100] flex flex-col`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <section className='grid h-48 grid-cols-5 gap-5 mt-6 grid-rows-1 place-content-end text-4xl'>
-          <ShopCard img='/hero/2.jpg' title='Rugs' />
-          <ShopCard img='/hero/5.jpg' title='Poufs' />
-          <ShopCard img='/hero/4.jpg' title='Pillows' />
-          <ShopCard img='/hero/5.jpg' title='Best Selling' />
-          <div className='bg-amber-50 flex items-center justify-center mr-5 rounded-md'>
-            <Link href={'/collections'}>
-              <button className='bg-amber-500 text-white px-6 py-2 text-lg rounded-full hover:bg-amber-300'>
-                Discover All
-              </button>
-            </Link>
-          </div>
+        <section className='grid h-48 grid-cols-5 gap-5 mt-6 grid-rows-1   place-content-end text-3xl   px-3'>
+          {loading
+            ? Array(3)
+                .fill(true)
+                .map((_, i) => (
+                  <div
+                    key={i}
+                    className='bg-gray-200 w-full h-full text-transparent animate-pulse '
+                  >
+                    hell
+                  </div>
+                ))
+            : collections.map(
+                (collection) =>
+                  collection.handle !== '' && (
+                    <Link
+                      replace
+                      href={'/collections/' + collection.handle}
+                      key={collection.handle}
+                    >
+                      <ShopCard
+                        title={collection.title}
+                        img={'/collections/' + collection.handle + '.jpg'}
+                      />
+                    </Link>
+                  )
+              )}
+          <Link
+            replace
+            href={'/collections'}
+            className='bg-amber-500 text-white flex items-center justify-center   rounded-md'
+          >
+            All Collections
+          </Link>
+          <Link
+            replace
+            href={'/all'}
+            className='border border-amber-500 text-amber-500 flex items-center justify-center   rounded-md'
+          >
+            All Products
+          </Link>
         </section>
       </div>
     </div>
@@ -71,11 +111,3 @@ function Shop() {
 }
 
 export default Shop;
-
-function PolicyLink({ href, title }: { href: string; title: string }) {
-  return (
-    <Link href={href} target='_blank'>
-      <small className='hover:text-amber-500 cursor-pointer'>{title}</small>
-    </Link>
-  );
-}
