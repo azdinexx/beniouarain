@@ -79,7 +79,7 @@ function Shop({
             : collections.map(
                 (collection) =>
                   collection.handle !== '' && (
-                    <Link
+                    <a
                       onClick={() => setIsOpen(false)}
                       href={'/collections/' + collection.handle}
                       key={collection.handle}
@@ -94,23 +94,23 @@ function Shop({
                       <p className='absolute inset-0 flex justify-center items-center'>
                         <span className='font-bold'>{collection.title}</span>
                       </p>
-                    </Link>
+                    </a>
                   )
               )}
-          <Link
+          <a
             onClick={() => setIsOpen(false)}
             href={'/collections'}
             className='bg-amber-500 text-white flex items-center justify-center   rounded-md'
           >
             All Collections
-          </Link>
-          <Link
+          </a>
+          <a
             onClick={() => setIsOpen(false)}
             href={'/all'}
             className='border border-amber-500 text-amber-500 flex items-center justify-center   rounded-md'
           >
             All Products
-          </Link>
+          </a>
         </section>
       </div>
     </div>
