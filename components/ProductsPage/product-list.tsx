@@ -28,34 +28,24 @@ function ProductList({ getProducts }: ProductListProps) {
   });
   useEffect(() => {
     setLoading(true);
-    getProducts(queryObj).then((data) => {
-      if (data === null) return;
-      setData(data);
-      setLoading(false);
-    });
+    const res = getProducts(queryObj);
+
+    if (data === null) return;
+    const timeoutID = setTimeout(() => {
+      res.then((data) => {
+        if (data === null) return;
+        setData(data);
+        setLoading(false);
+      });
+    }, 600);
+
+    return () => {
+      clearTimeout(timeoutID);
+    };
   }, [queryObj]);
 
-  const Dummy = new Array(10).fill(0);
-
   if (loading) {
-    return (
-      <>
-        <p className='mt-2 text-gray-500 flex gap-2'>
-          {' '}
-          <span className='text-transparent bg-gray-400/30  animate-pulse rounded-lg'>
-            10
-          </span>
-          <span className=' bg-gray-100 rounded-xl text-transparent animate-pulse'>
-            products
-          </span>
-        </p>
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
-          {Dummy.map((_, i) => {
-            return <CardSkeleton key={i} />;
-          })}
-        </div>
-      </>
-    );
+    return <ProductListSkeleton />;
   }
   return (
     <>
@@ -92,7 +82,7 @@ function Hero({
 }) {
   return (
     <section>
-      <h2 className='my-3 text-5xl '>All Products </h2>
+      <h2 className='my-3 text-5xl  '>All Products </h2>
 
       <div>
         <p>filter by </p>
@@ -100,7 +90,7 @@ function Hero({
           {filters.map((filter) => {
             return (
               <button
-                className='border px-6 py-3 rounded-xl'
+                className='border px-6 py-3 rounded-xl uppercase'
                 onClick={() => {
                   setQuery(filter.query);
                 }}
@@ -142,3 +132,51 @@ const filters = [
     },
   },
 ];
+
+const ProductListSkeleton = () => {
+  const Dummy = new Array(10).fill(0);
+
+  return (
+    <>
+      <section>
+        <h2 className='my-3 text-5xl text-transparent bg-gray-100 animate-pulse  w-fit'>
+          All Products{' '}
+        </h2>
+
+        <div>
+          <p className='w-fit text-transparent bg-gray-100 animate-pulse  '>
+            filter by{' '}
+          </p>
+          <div className='flex gap-4 mt-2'>
+            {filters.map((filter) => {
+              return (
+                <button
+                  className='border px-6 py-3 rounded-xl uppercase'
+                  key={filter.title}
+                >
+                  <span className='text-transparent bg-gray-50 animate-pulse '>
+                    {filter.title}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      <p className='mt-2 text-gray-500 flex gap-2'>
+        {' '}
+        <span className='text-transparent bg-gray-400/30  animate-pulse rounded-lg'>
+          10
+        </span>
+        <span className=' bg-gray-100 rounded-xl text-transparent animate-pulse'>
+          products
+        </span>
+      </p>
+      <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
+        {Dummy.map((_, i) => {
+          return <CardSkeleton key={i} />;
+        })}
+      </div>
+    </>
+  );
+};
