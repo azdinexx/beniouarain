@@ -3,7 +3,7 @@ const dd = [1, 0, 1];
 
 function loading() {
   return (
-    <div className='grid grid-cols-3 gap-4'>
+    <div className='grid grid-cols-2 gap-4'>
       {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
         return (
           <div
@@ -16,7 +16,7 @@ function loading() {
               }`}
             ></div>
             <span className='text-transparent bg-gray-300 w-fit'>
-              dddddddddddd
+              dddddddddddddddddd
             </span>
           </div>
         );

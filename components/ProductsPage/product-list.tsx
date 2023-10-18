@@ -9,22 +9,31 @@ interface ProductListProps {
     query,
     sortKey,
     reverse,
-  }: {
-    query?: string;
-    sortKey?: string;
-    reverse?: boolean;
-  }) => Promise<Product[] | null>;
+  }: QUERY_OBJ) => Promise<Product[] | null>;
 }
+
+interface QUERY_OBJ {
+  query?: string;
+  sortKey?: string;
+  reverse?: boolean;
+}
+
 function ProductList({ getProducts }: ProductListProps) {
   const [data, setData] = React.useState<Product[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
+  const [queryObj, setQueryObj] = React.useState<QUERY_OBJ>({
+    query: 'tag:rugs ',
+    sortKey: 'PRICE',
+    reverse: false,
+  });
   useEffect(() => {
-    getProducts({}).then((data) => {
+    setLoading(true);
+    getProducts(queryObj).then((data) => {
       if (data === null) return;
       setData(data);
       setLoading(false);
     });
-  });
+  }, [queryObj]);
 
   const Dummy = new Array(10).fill(0);
 
@@ -50,6 +59,8 @@ function ProductList({ getProducts }: ProductListProps) {
   }
   return (
     <>
+      <Hero setQuery={setQueryObj} />
+
       <p className='mt-2 text-gray-500'>{data.length} products</p>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
         {data.length === 0 ? (
@@ -73,3 +84,61 @@ function ProductList({ getProducts }: ProductListProps) {
 }
 
 export default ProductList;
+
+function Hero({
+  setQuery,
+}: {
+  setQuery: React.Dispatch<React.SetStateAction<QUERY_OBJ>>;
+}) {
+  return (
+    <section>
+      <h2 className='my-3 text-5xl '>All Products </h2>
+
+      <div>
+        <p>filter by </p>
+        <div className='flex gap-4 mt-2'>
+          {filters.map((filter) => {
+            return (
+              <button
+                className='border px-6 py-3 rounded-xl'
+                onClick={() => {
+                  setQuery(filter.query);
+                }}
+                key={filter.title}
+              >
+                {filter.title}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const filters = [
+  {
+    title: 'price',
+    query: {
+      query: 'tag:rugs ',
+      sortKey: 'PRICE',
+      reverse: false,
+    },
+  },
+  {
+    title: 'title',
+    query: {
+      query: 'tag:rugs ',
+      sortKey: 'TITLE',
+      reverse: false,
+    },
+  },
+  {
+    title: 'new',
+    query: {
+      query: 'tag:rugs ',
+      sortKey: 'CREATED_AT',
+      reverse: false,
+    },
+  },
+];
