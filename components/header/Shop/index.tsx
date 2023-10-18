@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Collection } from '@/lib/shopify/types';
 import ShopCard from './shop-card';
+import Image from 'next/image';
 
 function Shop({
   getCollections,
@@ -79,26 +80,32 @@ function Shop({
                 (collection) =>
                   collection.handle !== '' && (
                     <Link
-                      replace
+                      onClick={() => setIsOpen(false)}
                       href={'/collections/' + collection.handle}
                       key={collection.handle}
+                      className='bg-amber-500 relative text-white flex items-center justify-center   rounded-md overflow-hidden'
                     >
-                      <ShopCard
-                        title={collection.title}
-                        img={'/collections/' + collection.handle + '.jpg'}
+                      <Image
+                        src={'/collections/' + collection.handle + '.jpg'}
+                        width={500}
+                        height={500}
+                        alt={collection.title}
                       />
+                      <p className='absolute inset-0 flex justify-center items-center'>
+                        <span className='font-bold'>{collection.title}</span>
+                      </p>
                     </Link>
                   )
               )}
           <Link
-            replace
+            onClick={() => setIsOpen(false)}
             href={'/collections'}
             className='bg-amber-500 text-white flex items-center justify-center   rounded-md'
           >
             All Collections
           </Link>
           <Link
-            replace
+            onClick={() => setIsOpen(false)}
             href={'/all'}
             className='border border-amber-500 text-amber-500 flex items-center justify-center   rounded-md'
           >
