@@ -42,7 +42,7 @@ function ProductList({ getProducts }: ProductListProps) {
     return () => {
       clearTimeout(timeoutID);
     };
-  }, [queryObj, getProducts]);
+  }, [queryObj]);
 
   if (loading) {
     return <ProductListSkeleton />;
