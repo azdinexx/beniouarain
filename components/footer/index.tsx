@@ -14,8 +14,8 @@ const font = Croissant_One({
   weight: ['400'],
 });
 
-function Footer() {
-  const policies = getAllPolicies();
+async function Footer() {
+  const policies = await getAllPolicies();
   return (
     <footer className='w-full bg-amber-100/20 py-6 mt-20'>
       <section className='container mx-auto grid  grid-cols-2  md:grid-cols-4 gap-5 mt-5 mb-10 place-items-center'>
@@ -38,8 +38,13 @@ function Footer() {
 
       <section className='text-xs text-gray-400 flex flex-wrap py-4 gap-3  justify-evenly max-w-5xl mx-auto mt-8 uppercase'>
         {policies.map((policy) => (
-          <Link href={`/policies/${policy.id}`} key={policy.id}>
-            <span className='hover:underline'>{policy.title}</span>
+          <Link
+            href={`/policies/${policy
+              .toLocaleLowerCase()
+              .replaceAll(' ', '-')}`}
+            key={policy}
+          >
+            <span className='hover:underline'>{policy}</span>
           </Link>
         ))}
       </section>

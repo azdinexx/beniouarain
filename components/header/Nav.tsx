@@ -41,10 +41,10 @@ export interface NavItem {
 
 const navo: NavItem[] = [
   { title: 'All', href: '/all' },
-  { title: 'blog', href: '/blog' },
-  { title: 'collections', href: '/collections' },
+  { title: 'Policies', href: '/policies' },
+  { title: 'Collections', href: '/collections' },
   {
-    title: 'about',
+    title: 'About',
     href: '/about',
   },
 ];

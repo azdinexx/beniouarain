@@ -1,20 +1,26 @@
 import React from 'react';
-import { getPolicies } from '@/utils/getPolicies';
+import { getPolicie } from '@/utils/getPolicies';
 
-function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
-  const policie = getPolicies(id);
+async function Page({ params }: { params: { id: string } }) {
+  const policie = (await getPolicie(params.id)) as ShopifyBuy.ShopPolicy;
+
   return (
-    <article className='flex flex-col gap-5 max-w-7xl mx-auto'>
+    <section className='flex flex-col gap-5 max-w-7xl mx-auto p-20 '>
+      <a href='/policies' className='px-3 py-1 border rounded-lg w-fit'>
+        back
+      </a>
       {policie ? (
         <>
-          <h1 className='text-2xl font-bold '>{policie?.title}</h1>
-          <p className=''>{policie?.body}</p>
+          <h1 className='text-2xl font-bold text-center '>{policie?.title}</h1>
+
+          <article
+            dangerouslySetInnerHTML={{ __html: policie?.body }}
+          ></article>
         </>
       ) : (
         <p>Not found</p>
       )}
-    </article>
+    </section>
   );
 }
 
