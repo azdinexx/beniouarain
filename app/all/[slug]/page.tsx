@@ -34,7 +34,10 @@ async function Page({ params }: { params: { slug: string } }) {
 
     return (
       <div className='relative'>
-        <a href='/all' className='absolute top-0 px-3 py-1 border rounded-lg'>
+        <a
+          href='/all'
+          className=' hidden md:block absolute top-0 px-3 py-1 border rounded-lg'
+        >
           back
         </a>
         <script

@@ -54,7 +54,7 @@ const features_array = [
   },
   {
     title: 'Free Returns',
-    description: 'Free returns on all orders over $100',
+    description: 'Free returns on all orders  ',
     image: '/features/free_returns.png',
   },
   {
