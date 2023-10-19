@@ -69,7 +69,7 @@ function Article({
           width={2000}
           height={2000}
           src={product.featuredImage.url}
-          alt='Product Image'
+          alt={product.featuredImage.altText}
           className={reverse ? '-translate-y-0' : '-translate-y-20'}
           priority={false}
           loading='lazy'

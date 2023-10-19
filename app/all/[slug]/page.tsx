@@ -33,7 +33,10 @@ async function Page({ params }: { params: { slug: string } }) {
     };
 
     return (
-      <>
+      <div className='relative'>
+        <a href='/all' className='absolute top-0 px-3 py-1 border rounded-lg'>
+          back
+        </a>
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
@@ -48,7 +51,7 @@ async function Page({ params }: { params: { slug: string } }) {
           <Details product={product as Product} />
           <RecommendedProducts data={recommended} />
         </div>
-      </>
+      </div>
     );
   } catch {
     return <div>Product not found</div>;
