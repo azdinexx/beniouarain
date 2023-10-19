@@ -17,6 +17,6 @@ export function Locomotive({ children }: { children: React.ReactNode }) {
         });
       })();
     } else;
-  }, [pathname]);
+  }, []);
   return <div>{children}</div>;
 }

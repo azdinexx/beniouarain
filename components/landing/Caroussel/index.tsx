@@ -5,13 +5,15 @@ import { Product } from '@/lib/shopify/types';
 
 function Caroussel({ products }: { products: Product[] }) {
   const [transform, setTransform] = React.useState('');
-  const [client, setClient] = React.useState(false);
+  const [isClient, setIsClient] = React.useState(false);
 
   React.useEffect(() => {
-    setClient(true);
+    setIsClient(true);
   }, []);
 
-  if (!client) return null;
+  if (!isClient) {
+    return null;
+  }
 
   let currentIndex = 0;
   const items = document.querySelectorAll('.carousel-item');

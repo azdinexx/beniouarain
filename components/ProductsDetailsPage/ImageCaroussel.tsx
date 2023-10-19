@@ -12,10 +12,6 @@ function ImageCaroussel({
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  useEffect(() => {
-    const prev = document.getElementById('prev' + current.toString());
-    prev?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
   return (
     <>
       <button
