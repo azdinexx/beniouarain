@@ -9,24 +9,26 @@ function Collections({ collections }: Props) {
   if (!collections) return null;
   return (
     <section className='md:hidden  grid grid-cols-2 py-3 gap-3 p-4'>
-      {collections.map((collection) =>
-        collection.handle === '' ? null : (
-          <Link
-            href={'/collections/' + collection.handle}
-            key={collection.path}
-          >
-            <div
-              style={{
-                backgroundImage: `url(${
-                  '/collections/' + collection.handle + '.jpg'
-                })`,
-              }}
-              className='bg-cover bg-center bg-no-repeat aspect-square flex items-center justify-center text-2xl font-semibold text-white rounded-lg'
-            >
-              <p className='max-w-[100px] text-center'>{collection.title}</p>
-            </div>
-          </Link>
-        )
+      {collections.map((collection, index) =>
+        collection.handle === ''
+          ? null
+          : index < 4 && (
+              <Link
+                href={'/collections/' + collection.handle}
+                key={collection.path}
+              >
+                <div
+                  style={{
+                    backgroundImage: `url(${'/collections/' + index + '.jpg'})`,
+                  }}
+                  className='bg-cover bg-center bg-no-repeat aspect-square flex items-center justify-center text-2xl font-semibold text-white rounded-lg'
+                >
+                  <p className='max-w-[100px] text-center'>
+                    {collection.title.split(':')[0]}
+                  </p>
+                </div>
+              </Link>
+            )
       )}
       <Link
         href='/collections'
