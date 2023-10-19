@@ -1,10 +1,10 @@
 import { Product } from '@/lib/shopify/types';
 import Image from 'next/image';
-import React, { LegacyRef } from 'react';
+import React from 'react';
 
 function CarouselCard({ product }: { product: Product }) {
   return (
-    <div className='flex-none carousel-item w-full  md:w-1/4'>
+    <div className='flex-none carousel-item w-full h-96  md:w-1/4'>
       <div className='aspect-square border relative'>
         <Image
           width={500}

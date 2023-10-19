@@ -35,7 +35,7 @@ function Carousel({ products }: { products: Product[] }) {
   };
 
   return (
-    <div className='relative overflow-hidden flex w-full h-96 shadow p-10'>
+    <div className='relative overflow-hidden flex w-full  shadow p-10'>
       <button
         className='absolute z-30 right-6 top-1/2 bg-white aspect-square rounded-full shadow-md p-1'
         onClick={nextSlide}

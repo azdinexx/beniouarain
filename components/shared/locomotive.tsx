@@ -1,22 +1,33 @@
 'use client';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 import { useEffect } from 'react';
+import Lenis from '@studio-freight/lenis';
 
 export function Locomotive({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+  const [dimension, setDimension] = React.useState({
+    width: 0,
+    height: 0,
+  });
+
   useEffect(() => {
-    if (pathname === '/') {
-      (async () => {
-        const LocomotiveScroll = (await import('locomotive-scroll')).default;
-        const scroll = new LocomotiveScroll({
-          smooth: true,
-          smartphone: {
-            smooth: false,
-          },
-        });
-      })();
-    } else;
+    const lenis = new Lenis();
+
+    const raf = (time: any) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    const resize = () => {
+      setDimension({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener('resize', resize);
+    requestAnimationFrame(raf);
+    resize();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+    };
   }, []);
   return <div>{children}</div>;
 }
