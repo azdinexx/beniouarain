@@ -12,7 +12,7 @@ function Carousel({ products }: { products: Product[] }) {
     const items = document.querySelectorAll('.carousel-item');
 
     function updateCarousel() {
-      setItemWidth((items[0] as HTMLElement)?.offsetWidth || 0);
+      setItemWidth((items[0] as HTMLElement)?.clientWidth || 0);
     }
 
     updateCarousel();
@@ -35,7 +35,7 @@ function Carousel({ products }: { products: Product[] }) {
   };
 
   return (
-    <div className='relative overflow-hidden flex w-full  shadow p-10'>
+    <div className='relative overflow-hidden flex w-full  shadow py-10 my-4 px-5 md:px-10'>
       <button
         className='absolute z-30 right-6 top-1/2 bg-white aspect-square rounded-full shadow-md p-1'
         onClick={nextSlide}
@@ -71,7 +71,7 @@ function Carousel({ products }: { products: Product[] }) {
       <section
         style={{ transform: `translateX(-${itemWidth * currentIndex}px)` }}
         id='section'
-        className='flex  transition-transform ease duration-500 gap-8'
+        className='flex  justify-between transition-transform ease duration-500 gap-4 md:gap-8'
       >
         {products.map((product, i) => {
           return <CarouselCard key={product.id} product={product} />;

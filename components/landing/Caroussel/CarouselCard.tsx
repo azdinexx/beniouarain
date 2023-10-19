@@ -4,7 +4,7 @@ import React from 'react';
 
 function CarouselCard({ product }: { product: Product }) {
   return (
-    <div className='flex-none carousel-item w-full h-96  md:w-1/4'>
+    <div className='flex-none carousel-item w-1/2   snap-x  md:w-1/4'>
       <div className='aspect-square border relative'>
         <Image
           width={500}
