@@ -1,9 +1,8 @@
-import { get } from 'http';
 import Client from 'shopify-buy';
 
 export const client = Client.buildClient({
-  domain: 'cd5ff8.myshopify.com',
-  storefrontAccessToken: '947546c2e080df2158a33cbff0d958d2',
+  domain: process.env.SHOPIFY_STORE_DOMAIN_FOR_SHOPIF_BUY as string,
+  storefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN as string,
   apiVersion: '2023-07',
 });
 

@@ -74,8 +74,9 @@ function Shop({
                   </div>
                 ))
             : collections.map(
-                (collection) =>
-                  collection.handle !== '' && (
+                (collection, index) =>
+                  collection.handle !== '' &&
+                  index < 4 && (
                     <a
                       onClick={() => setIsOpen(false)}
                       href={'/collections/' + collection.handle}
@@ -83,13 +84,15 @@ function Shop({
                       className='bg-amber-500 relative text-white flex items-center justify-center   rounded-md overflow-hidden'
                     >
                       <Image
-                        src={'/collections/' + collection.handle + '.jpg'}
+                        src={'/collections/' + index + '.jpg'}
                         width={500}
                         height={500}
                         alt={collection.title}
                       />
                       <p className='absolute inset-0 flex justify-center items-center'>
-                        <span className='font-bold'>{collection.title}</span>
+                        <span className='font-bold'>
+                          {collection.title.split(':')[0]}
+                        </span>
                       </p>
                     </a>
                   )

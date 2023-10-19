@@ -20,7 +20,7 @@ async function page() {
                       width={800}
                       height={800}
                       alt={item.title}
-                      src={'/collections/' + item.handle + '.jpg'}
+                      src={'/collections/' + (index % 3) + '.jpg'}
                       className='object-cover  inset-0 w-full h-full'
                     />
                   </div>
