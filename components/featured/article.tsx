@@ -2,7 +2,7 @@
 import { Product } from '@/lib/shopify/types';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTransform, useScroll, motion } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 
@@ -25,7 +25,6 @@ export function Article({ product, reverse = false, handle, children }: Props) {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, (height - 200) * 0.6]);
   useEffect(() => {
     const lenis = new Lenis();
-
     const raf = (time: any) => {
       lenis.raf(time);
       requestAnimationFrame(raf);

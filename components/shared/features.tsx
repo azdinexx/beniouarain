@@ -4,7 +4,6 @@ import Image from 'next/image';
 function Features() {
   return (
     <section className='flex flex-col my-4 p-3'>
-      <h2 className='text-2xl underline font-bold mt-3'>Features</h2>
       <ul className='grid grid-cols-2 gap-2 md:grid-cols-4 '>
         {features_array.map((feature, index) => (
           <FeatureCard

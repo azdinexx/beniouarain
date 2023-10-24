@@ -5,8 +5,13 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { isMobile } from 'react-device-detect';
+import { useScroll, motion, useTransform } from 'framer-motion';
 
 export default function Index() {
+  const { scrollYProgress } = useScroll();
+  let y2 = useTransform(scrollYProgress, [0, 0.31], ['0%', '-100%']);
+  let y1 = useTransform(scrollYProgress, [0, 0.21], ['0%', '-100%']);
+
   const background = useRef(null);
   const introImage = useRef(null);
 
@@ -39,10 +44,9 @@ export default function Index() {
         />
       </div>
       <div className={styles.intro}>
-        <div
+        <motion.div
+          style={{ y: y2 }}
           ref={introImage}
-          data-scroll
-          data-scroll-speed='0.4'
           className={styles.introImage}
         >
           <Image
@@ -52,10 +56,10 @@ export default function Index() {
             priority={true}
             id='myImage'
           />
-        </div>
-        <h1 data-scroll data-scroll-speed='0.7'>
+        </motion.div>
+        <motion.h1 style={{ y: y1 }}>
           MOROCCAN <br /> HANDMADE <br /> RUGS
-        </h1>
+        </motion.h1>
       </div>
     </div>
   );

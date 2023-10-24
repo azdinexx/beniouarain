@@ -14,7 +14,6 @@ export default function MobileOrDesktop() {
   useEffect(() => {
     setisclient(true);
   }, []);
-  console.log(isMobile);
 
   if (!isclient) return null;
   return (

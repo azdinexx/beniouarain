@@ -8,6 +8,7 @@ import { Locomotive } from '@/components/shared/locomotive';
 import React, { Suspense } from 'react';
 import Caroussel from '@/components/landing/Caroussel';
 import Carousel from '@/components/Mobile/carousel';
+import MotionCaroussel from '@/components/shared/motion-caroussel';
 async function Page() {
   const Carousel_products = await getProducts({
     query: 'tag:authentic_rug',
@@ -28,6 +29,9 @@ async function Page() {
       </div>
       <Caroussel products={Carousel_products} />
       <Features />
+      {
+        //<MotionCaroussel products={Carousel_products} />
+      }
     </Locomotive>
   );
 }
