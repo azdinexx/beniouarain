@@ -18,7 +18,7 @@ export function Article({ product, reverse = false, handle, children }: Props) {
 
   const { scrollYProgress } = useScroll({
     target: image,
-    offset: ['start end', 'end start'],
+    offset: ['end end', 'end start'],
   });
   const { height } = dimension;
   const y = useTransform(scrollYProgress, [0, 1], [0, (height - 100) * 0.3]);
