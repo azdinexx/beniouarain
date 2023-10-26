@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import Header from '../components/header';
 import Footer from '@/components/footer';
 import Announcement from '../components/anouncement';
+import GoogleAnalytics from '@/components/Analytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Header />
         <main className='container mx-auto'>{children}</main>
         <Footer />
+        <GoogleAnalytics GA_MEASUREMENT_ID={process.env.GOOGLE_ID as string} />
       </body>
     </html>
   );
