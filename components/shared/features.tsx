@@ -3,17 +3,15 @@ import Image from 'next/image';
 
 function Features() {
   return (
-    <section className='flex flex-col my-4 p-3'>
-      <ul className='grid grid-cols-2 gap-2 md:grid-cols-4 '>
-        {features_array.map((feature, index) => (
-          <FeatureCard
-            key={index + feature.title}
-            title={feature.title}
-            description={feature.description}
-            image={feature.image}
-          />
-        ))}
-      </ul>
+    <section className='grid grid-cols-2 gap-2 md:grid-cols-4    my-4 p-4 '>
+      {features_array.map((feature, index) => (
+        <FeatureCard
+          key={index + feature.title}
+          title={feature.title}
+          description={feature.description}
+          image={feature.image}
+        />
+      ))}
     </section>
   );
 }

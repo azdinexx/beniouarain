@@ -21,7 +21,7 @@ function Carousel({ products }: Props) {
 
   if (!isclient || !products) return null;
   return (
-    <div className='   md:hidden my-3 relative flex flex-col'>
+    <div className=' p-3   md:hidden my-3 relative flex flex-col'>
       {/* Controllers */}
       <Controllers
         currentSlide={currentSlide}
@@ -93,7 +93,7 @@ function Controllers({
   return (
     <>
       <button
-        className='absolute z-10 top-1/3 right-3 text-gray-50 rounded-full'
+        className='absolute z-10 top-1/3 right-7 text-gray-50 rounded-full'
         onClick={() => {
           currentSlide === max
             ? setCurrentSlide(0)
@@ -103,8 +103,8 @@ function Controllers({
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          width='32'
-          height='32'
+          width='36'
+          height='36'
           viewBox='0 0 24 24'
         >
           <path
@@ -114,7 +114,7 @@ function Controllers({
         </svg>
       </button>
       <button
-        className='z-10 absolute top-1/3 left-3 text-gray-50 rounded-full'
+        className='z-10 absolute top-1/3 left-7 text-gray-50 rounded-full'
         onClick={() => {
           currentSlide === 0
             ? setCurrentSlide(max)
@@ -124,8 +124,8 @@ function Controllers({
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          width='32'
-          height='32'
+          width='36'
+          height='36'
           viewBox='0 0 24 24'
         >
           <path
