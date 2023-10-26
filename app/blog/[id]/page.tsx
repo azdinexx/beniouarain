@@ -2,6 +2,8 @@ import React from 'react';
 import { getPost } from '@/lib/blog';
 import Image from 'next/image';
 import { Entry, EntrySkeletonType } from 'contentful';
+import RecommendedProducts from '@/components/ProductsDetailsPage/RecommendedProducts';
+import { getProducts } from '@/lib/shopify';
 
 interface Post {
   fields: {
@@ -23,6 +25,9 @@ async function page({ params }: { params: { id: string } }) {
   const imageURL: string = `https:${
     (post as unknown as Post)?.fields?.image?.fields.file.url
   }`;
+  const recommended = await getProducts({
+    query: `tag:rugs}`,
+  });
   return (
     <main className='py-7 mt-8 p-4'>
       <article className='space-y-6  max-w-4xl mx-auto'>
@@ -37,6 +42,9 @@ async function page({ params }: { params: { id: string } }) {
           </p>
         ))}
       </article>
+      <section className='max-w-4xl mx-auto'>
+        <RecommendedProducts data={recommended} />
+      </section>
     </main>
   );
 }
