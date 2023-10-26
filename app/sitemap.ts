@@ -1,3 +1,4 @@
+import { getAllPosts } from '@/lib/blog';
 import { getCollections, getPages, getProducts } from '@/lib/shopify';
 import { validateEnvironmentVariables } from '@/lib/utils';
 import { MetadataRoute } from 'next';
@@ -7,9 +8,7 @@ type Route = {
   lastModified: string;
 };
 
-const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : 'http://localhost:3000';
+const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   validateEnvironmentVariables();
@@ -33,10 +32,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
-  const pagesPromise = getPages().then((pages) =>
-    pages.map((page) => ({
-      url: `${baseUrl}/${page.handle}`,
-      lastModified: page.updatedAt,
+  const postsPormise = getAllPosts().then((posts) =>
+    posts.map((post) => ({
+      url: `${baseUrl}/blog/${post.sys.id}`,
+      lastModified: post.sys.updatedAt,
     }))
   );
 
@@ -44,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     fetchedRoutes = (
-      await Promise.all([collectionsPromise, productsPromise, pagesPromise])
+      await Promise.all([collectionsPromise, productsPromise, postsPormise])
     ).flat();
   } catch (error) {
     throw JSON.stringify(error, null, 2);
