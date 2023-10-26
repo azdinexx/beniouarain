@@ -18,7 +18,7 @@ function Card({ title, handle, price, images }: Props) {
     setLoading(false);
   };
   return (
-    <Link href={'all/' + handle}>
+    <a href={'all/' + handle}>
       <div
         className='group p-2 md:hover:ring-1     md:hover:shadow-lg transition duration-300 ease-in-out   flex flex-col justify-between rounded-xl md:hover:scale-110'
         onMouseEnter={() => setCurrentImage(1)}
@@ -78,7 +78,7 @@ function Card({ title, handle, price, images }: Props) {
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 

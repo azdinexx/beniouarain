@@ -20,14 +20,14 @@ interface QUERY_OBJ {
 
 function ProductList({ getProducts }: ProductListProps) {
   const [data, setData] = React.useState<Product[]>([]);
-  const [loading, setLoading] = React.useState<boolean>(true);
+  const [loadingProducts, setLoadingProducts] = React.useState<boolean>(true);
   const [queryObj, setQueryObj] = React.useState<QUERY_OBJ>({
     query: 'tag:rugs ',
     sortKey: 'PRICE',
     reverse: false,
   });
   useEffect(() => {
-    setLoading(true);
+    setLoadingProducts(true);
     const res = getProducts(queryObj);
 
     if (data === null) return;
@@ -35,7 +35,7 @@ function ProductList({ getProducts }: ProductListProps) {
       res.then((data) => {
         if (data === null) return;
         setData(data);
-        setLoading(false);
+        setLoadingProducts(false);
       });
     }, 600);
 
@@ -44,31 +44,34 @@ function ProductList({ getProducts }: ProductListProps) {
     };
   }, [queryObj]);
 
-  if (loading) {
-    return <ProductListSkeleton />;
-  }
   return (
     <>
       <Hero setQuery={setQueryObj} />
 
-      <p className='mt-2 text-gray-500'>{data.length} products</p>
-      <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
-        {data.length === 0 ? (
-          <div className='text-center'>No products found</div>
-        ) : (
-          data.map((product: Product) => {
-            return (
-              <Card
-                key={product.id}
-                title={product.title}
-                images={product.images.map((image) => image)}
-                handle={product.handle}
-                price={product.variants[0].price.amount}
-              />
-            );
-          })
-        )}
-      </div>
+      {loadingProducts ? (
+        <LoadingProducts />
+      ) : (
+        <>
+          <p className='mt-2 text-gray-500'>{data.length} products</p>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
+            {data.length === 0 ? (
+              <div className='text-center'>No products found</div>
+            ) : (
+              data.map((product: Product) => {
+                return (
+                  <Card
+                    key={product.id}
+                    title={product.title}
+                    images={product.images.map((image) => image)}
+                    handle={product.handle}
+                    price={product.variants[0].price.amount}
+                  />
+                );
+              })
+            )}
+          </div>
+        </>
+      )}
     </>
   );
 }
@@ -134,50 +137,22 @@ const filters = [
   },
 ];
 
-const ProductListSkeleton = () => {
-  const Dummy = new Array(10).fill(0);
-
-  return (
-    <>
-      <section>
-        <h2 className='my-3 text-5xl text-transparent bg-gray-100 animate-pulse  w-fit'>
-          All Products{' '}
-        </h2>
-
-        <div>
-          <p className='w-fit text-transparent bg-gray-100 animate-pulse  '>
-            filter by{' '}
-          </p>
-          <div className='flex gap-4 mt-2'>
-            {filters.map((filter) => {
-              return (
-                <button
-                  className='border px-6 py-3 rounded-xl uppercase'
-                  key={filter.title}
-                >
-                  <span className='text-transparent bg-gray-50 animate-pulse '>
-                    {filter.title}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-      <p className='mt-2 text-gray-500 flex gap-2'>
-        {' '}
-        <span className='text-transparent bg-gray-400/30  animate-pulse rounded-lg'>
-          10
-        </span>
-        <span className=' bg-gray-100 rounded-xl text-transparent animate-pulse'>
-          products
-        </span>
-      </p>
-      <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
-        {Dummy.map((_, i) => {
-          return <CardSkeleton key={i} />;
-        })}
-      </div>
-    </>
-  );
-};
+const Dummy = new Array(10).fill(0);
+const LoadingProducts = () => (
+  <>
+    <p className='mt-2 text-gray-500 flex gap-2'>
+      {' '}
+      <span className='text-transparent bg-gray-400/30  animate-pulse rounded-lg'>
+        10
+      </span>
+      <span className=' bg-gray-100 rounded-xl text-transparent animate-pulse'>
+        products
+      </span>
+    </p>
+    <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 md:p-8 '>
+      {Dummy.map((_, i) => {
+        return <CardSkeleton key={i} />;
+      })}
+    </div>
+  </>
+);

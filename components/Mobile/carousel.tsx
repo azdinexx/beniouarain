@@ -33,14 +33,16 @@ function Carousel({ products }: Props) {
       {/* Loading*/}
       <div className=' relative aspect-square m-1'>
         <ImageLoading loading={loading} />
-        <Image
-          width={800}
-          height={800}
-          src={products[currentSlide].featuredImage.url}
-          alt='Antique Rugs'
-          className='object-cover  inset-0 w-full h-full'
-          onLoadingComplete={() => setLoading(false)}
-        />
+        <Link href={'/all/' + products[currentSlide].handle}>
+          <Image
+            width={800}
+            height={800}
+            src={products[currentSlide].featuredImage.url}
+            alt='Antique Rugs'
+            className='object-cover  inset-0 w-full h-full'
+            onLoadingComplete={() => setLoading(false)}
+          />
+        </Link>
       </div>
       {loading ? (
         <>
@@ -57,9 +59,12 @@ function Carousel({ products }: Props) {
         </>
       ) : (
         <>
-          <h1 className={'m-3   text-gray-800'}>
-            {products[currentSlide].title}
-          </h1>
+          <Link href={'/all/' + products[currentSlide].handle}>
+            <h1 className={'m-3   text-gray-800'}>
+              {products[currentSlide].title}
+            </h1>
+          </Link>
+
           <div className='flex gap-2 justify-center my-2'>
             <button className=' px-5 py-2 text-white  bg-amber-400 rounded-s-full'>
               Add To Cart

@@ -45,11 +45,11 @@ export function Article({ product, reverse = false, handle, children }: Props) {
   return (
     <article className='grid grid-cols-1 md:grid-cols-2   overflow-hidden'>
       <div className={`${reverse && 'md:order-2'} flex flex-col gap-3 p-10`}>
-        <Link href={'/all/' + handle}>
+        <a href={'/all/' + handle}>
           <h2 className='text-xl font-bold max-w-xs hover:underline'>
             {product.title}
           </h2>
-        </Link>
+        </a>
         <p className='py-3'>{product.description.substring(0, 320) + '...'}</p>
         <p className='font-bold pb-3'>
           ${product.priceRange.maxVariantPrice.amount}{' '}
@@ -61,16 +61,18 @@ export function Article({ product, reverse = false, handle, children }: Props) {
         ref={image}
         style={reverse ? { y: y } : { y: y2 }}
       >
-        <Image
-          width={2000}
-          height={2000}
-          src={product.featuredImage.url}
-          alt={product.featuredImage.altText}
-          className={reverse ? '-translate-y-0' : '-translate-y-20'}
-          priority={false}
-          loading='lazy'
-          blurDataURL={imagePlaceHolder}
-        />
+        <a href={'/all/' + handle}>
+          <Image
+            width={2000}
+            height={2000}
+            src={product.featuredImage.url}
+            alt={product.featuredImage.altText}
+            className={reverse ? '-translate-y-0' : '-translate-y-20'}
+            priority={false}
+            loading='lazy'
+            blurDataURL={imagePlaceHolder}
+          />
+        </a>
       </motion.div>
     </article>
   );
