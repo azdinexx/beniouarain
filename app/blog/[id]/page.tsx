@@ -24,7 +24,7 @@ async function page({ params }: { params: { id: string } }) {
     (post as unknown as Post)?.fields?.image?.fields.file.url
   }`;
   return (
-    <main className='py-7 mt-8'>
+    <main className='py-7 mt-8 p-4'>
       <article className='space-y-6  max-w-4xl mx-auto'>
         <h1 className='text-4xl max-w-4xl mx-auto mb-4'>
           {post.fields.title as string}
