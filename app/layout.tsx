@@ -21,12 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <GoogleAnalytics GA_MEASUREMENT_ID={process.env.GOOGLE_ID as string} />
       <body className={inter.className}>
         <Announcement />
         <Header />
         <main className='container mx-auto'>{children}</main>
         <Footer />
-        <GoogleAnalytics GA_MEASUREMENT_ID={process.env.GOOGLE_ID as string} />
       </body>
     </html>
   );
