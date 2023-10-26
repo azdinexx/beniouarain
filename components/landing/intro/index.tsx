@@ -41,6 +41,7 @@ export default function Index() {
           fill={true}
           alt='background image'
           priority={true}
+          unoptimized
         />
       </div>
       <div className={styles.intro}>
@@ -55,6 +56,7 @@ export default function Index() {
             fill={true}
             priority={true}
             id='myImage'
+            unoptimized
           />
         </motion.div>
         <motion.h1 style={{ y: y1 }}>
