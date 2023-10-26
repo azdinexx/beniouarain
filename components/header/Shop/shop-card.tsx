@@ -14,8 +14,8 @@ function ShopCard({ title, img }: { title: string; img: string }) {
         <Image
           src={img}
           alt={title}
-          width={500}
-          height={500}
+          width={100}
+          height={100}
           className='object-cover w-full h-full blur-  group-hover:blur-none group-hover:scale-110 transition-all duration-150 ease-in-out'
         />
         <div className='absolute w-full h-36 bg-gradient-to-t from-white to-transparent left-0 bottom-0 '></div>
