@@ -20,29 +20,48 @@ async function page() {
             className='flex flex-col gap-2 border-b p-4 pb-7'
             key={post.sys.id}
           >
-            <h4 className='text-2xl flex flex-col '>
-              {post.fields.title?.toString()}{' '}
-              <span className='italic text-xs'>
-                {formatter.format(new Date(post.sys.createdAt as string))}
-              </span>
-            </h4>
-            <Image
-              src={
-                'https:' +
-                (post.fields.image as { fields: { file: { url: string } } })
-                  ?.fields.file.url
-              }
-              width={900}
-              height={500}
-              alt=''
-            />
+            <Link
+              href={'/blog/' + post.sys.id}
+              className='underline text-amber-900 flex'
+            >
+              <h4 className='text-2xl flex flex-col '>
+                {post.fields.title?.toString()}{' '}
+                <span className='italic text-xs'>
+                  {formatter.format(new Date(post.sys.createdAt as string))}
+                </span>
+              </h4>
+            </Link>
+            <Link href={'/blog/' + post.sys.id}>
+              <Image
+                src={
+                  'https:' +
+                  (post.fields.image as { fields: { file: { url: string } } })
+                    ?.fields.file.url
+                }
+                width={900}
+                height={500}
+                alt=''
+              />
+            </Link>
+
             <p>
               {(post.fields.body as string)?.substr(0, 180) + '...'}
               <Link
                 href={'/blog/' + post.sys.id}
-                className='underline text-amber-900'
+                className='underline text-amber-900 flex'
               >
-                Read More
+                Read More{' '}
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    fill='currentColor'
+                    d='M20 4v6.5a6.5 6.5 0 0 1-6.5 6.5H7.83l3.09 3.09L9.5 21.5L4 16l5.5-5.5l1.41 1.41L7.83 15h5.67c2.5 0 4.5-2 4.5-4.5V4h2Z'
+                  />
+                </svg>
               </Link>
             </p>
           </article>
