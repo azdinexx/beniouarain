@@ -42,7 +42,6 @@ export default function Index() {
         alt=''
         src={'/images/pouf.png'}
         className='absolute top-0 right-0 z-100'
-        unoptimized
       />
     </div>
   );
