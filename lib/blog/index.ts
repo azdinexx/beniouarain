@@ -1,25 +1,21 @@
-const BASE_URL = `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}`;
-const type = 'pageBlogPost';
+import { createClient } from 'contentful';
 
-export async function getAllPosts() {
-  const url = `${BASE_URL}&content_type=${type}`;
-  try {
-    const res = await fetch(url);
-    const posts = await res.json();
-    return posts;
-  } catch (error) {
-    return error;
-  }
-}
+export const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID as string,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
+});
 
-export async function getPost(id: string) {
-  if (!id) return new Error('No id provided');
-  const url = `${BASE_URL}&content_type=${type}&sys.id=${id}`;
-  try {
-    const res = await fetch(url);
-    const post = await res.json();
-    return post;
-  } catch (error) {
-    return error;
-  }
-}
+export const getAllPosts = async () => {
+  let posts = await client.getEntries({
+    content_type: 'post',
+  });
+
+  return posts.items;
+};
+
+export const getPost = async (id: string) => {
+  if (!id) return null;
+  let post = await client.getEntry(id);
+  if (!post) return null;
+  return post;
+};
