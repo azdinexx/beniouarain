@@ -40,7 +40,7 @@ export default function Index() {
         width={500}
         height={500}
         alt=''
-        src={'/images/pouf.png'}
+        src={'/images/pouf.webp'}
         className='absolute top-0 right-0 z-100'
       />
     </div>

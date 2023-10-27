@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { isMobile } from 'react-device-detect';
 import { useScroll, motion, useTransform } from 'framer-motion';
-import introImg from '@/public/images/pouf.png';
+import introImg from '@/public/images/pouf.webp';
 
 export default function Index() {
   const { scrollYProgress } = useScroll();
@@ -38,7 +38,7 @@ export default function Index() {
     <div className={styles.homeHeader}>
       <div className={styles.backgroundImage} ref={background} id='bg'>
         <Image
-          src={'/images/bg.jpg'}
+          src={'/images/bg.webp'}
           fill={true}
           alt='background image'
           priority={true}
