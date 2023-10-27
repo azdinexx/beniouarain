@@ -1,6 +1,7 @@
 import { Collection } from '@/lib/shopify/types';
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 interface Props {
   collections: Collection[];
@@ -19,15 +20,15 @@ function Collections({ collections }: Props) {
                   href={'/collections/' + collection.handle}
                   key={collection.path}
                 >
-                  <div
-                    style={{
-                      backgroundImage: `url(${
-                        '/collections/' + index + '.jpg'
-                      })`,
-                    }}
-                    className='bg-cover bg-center bg-no-repeat aspect-square flex items-center justify-center text-2xl font-semibold text-white rounded-lg'
-                  >
-                    <p className='max-w-[100px] text-center'>
+                  <div className='relative overflow-hidden  aspect-square flex items-center justify-center text-2xl font-semibold text-white rounded-lg'>
+                    <Image
+                      src={`${'/collections/' + index + '.jpg'}`}
+                      alt={collection.title}
+                      fill
+                      className=' -z-0 object-cover'
+                      quality={60}
+                    />
+                    <p className='max-w-[100px] text-center z-10'>
                       {collection.title.split(':')[0]}
                     </p>
                   </div>
