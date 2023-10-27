@@ -7,15 +7,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const projects = [
   {
     title: 'Beni Ouarain Rug',
-    src: '1.jpg',
+    src: '1.webp',
   },
   {
     title: 'Beni Ouarain Rug V2',
-    src: '2.jpg',
+    src: '2.webp',
   },
   {
     title: 'Beni Ouarain Rug Modern',
-    src: '3.jpg',
+    src: '3.webp',
   },
 ];
 

@@ -6,6 +6,7 @@ import { AddToCart } from '../cart/add-to-cart';
 import './featured.css';
 import Link from 'next/link';
 import { Article } from './article';
+import { isMobile } from 'react-device-detect';
 
 async function Featured() {
   const products = await getProducts({
@@ -13,7 +14,7 @@ async function Featured() {
   });
 
   return (
-    <div className='max-w-5xl mx-auto md:my-48  p attern  '>
+    <div className='max-w-6xl mx-auto md:my-48  p attern  '>
       <h2
         className='font-bold text-4xl mb-5 max-w-sm'
         data-scroll
@@ -27,7 +28,7 @@ async function Featured() {
             <Article
               key={product.id}
               product={product}
-              reverse={i % 2 === 1}
+              reverse={isMobile ? false : i % 2 === 1}
               handle={product.handle}
             >
               <AddToCart

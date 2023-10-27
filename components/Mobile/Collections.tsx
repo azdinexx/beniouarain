@@ -9,8 +9,7 @@ interface Props {
 function Collections({ collections }: Props) {
   if (!collections) return null;
   return (
-    <div className=' md:hidden flex flex-col p-4'>
-      <p className='text-xl font-bold pb-4'>Collections :</p>
+    <div className=' md:hidden flex flex-col p-4 my-2'>
       <section className='  grid grid-cols-2 py-3 gap-3 '>
         {collections.map((collection, index) =>
           collection.handle === ''

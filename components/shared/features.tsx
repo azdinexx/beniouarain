@@ -47,21 +47,21 @@ const features_array = [
   {
     title: 'Free Shipping',
     description: 'Available as Standard or Express delivery',
-    image: '/features/free_shipping.png',
+    image: '/features/free_shipping.webp',
   },
   {
     title: 'Free Returns',
     description: 'Free returns on all orders  ',
-    image: '/features/free_returns.png',
+    image: '/features/free_returns.webp',
   },
   {
     title: 'Secure Payments',
     description: '100% Secure payment with 256-bit SSL Encryption',
-    image: '/features/secure_payments.png',
+    image: '/features/secure_payments.webp',
   },
   {
     title: 'Local Support',
     description: '24/7 Dedicated support',
-    image: '/features/local_support.png',
+    image: '/features/local_support.webp',
   },
 ];
