@@ -1,4 +1,3 @@
-import Desktop from '@/components/Desktop/Desktop';
 import Collections from '@/components/Mobile/Collections';
 import Featured from '@/components/featured';
 import Features from '@/components/shared/features';
@@ -8,17 +7,21 @@ import { Locomotive } from '@/components/shared/locomotive';
 import React, { Suspense } from 'react';
 import Caroussel from '@/components/landing/Caroussel';
 import Carousel from '@/components/Mobile/carousel';
-import MotionCaroussel from '@/components/shared/motion-caroussel';
+import dynamic from 'next/dynamic';
+import { isDesktop } from 'react-device-detect';
+
 async function Page() {
   const Carousel_products = await getProducts({
     query: 'tag:authentic_rug',
   });
   const collections = await getCollections();
-
+  const Desktop = dynamic(() => import('@/components/Desktop/Desktop'), {
+    ssr: false,
+  });
   return (
     <Locomotive>
       <div className='hidden md:block' id='main'>
-        <Desktop />
+        {isDesktop && <Desktop />}
       </div>
       <Carousel products={Carousel_products} />
       <Suspense fallback={'hello'}>
