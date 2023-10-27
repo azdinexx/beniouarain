@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { isMobile } from 'react-device-detect';
 import { useScroll, motion, useTransform } from 'framer-motion';
-import introImg from '@/public/images/intro.jpg';
+import introImg from '@/public/images/pouf.png';
 
 export default function Index() {
   const { scrollYProgress } = useScroll();
