@@ -20,21 +20,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const collectionsPromise = getCollections().then((collections) =>
     collections.map((collection) => ({
-      url: `${baseUrl}${collection.path}`,
+      url: `${baseUrl}collections/${collection.path.split('/').pop()}`,
       lastModified: collection.updatedAt,
     }))
   );
 
   const productsPromise = getProducts({}).then((products) =>
     products.map((product) => ({
-      url: `${baseUrl}/product/${product.handle}`,
+      url: `${baseUrl}all/${product.handle}`,
       lastModified: product.updatedAt,
     }))
   );
 
   const postsPormise = getAllPosts().then((posts) =>
     posts.map((post) => ({
-      url: `${baseUrl}/blog/${post.sys.id}`,
+      url: `${baseUrl}blog/${post.sys.id}`,
       lastModified: post.sys.updatedAt,
     }))
   );
