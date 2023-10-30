@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function Features() {
   return (
-    <section className='grid grid-cols-2 gap-2 md:grid-cols-4    my-4 p-4 '>
+    <ul className='grid grid-cols-2 gap-2 md:grid-cols-4    my-4 p-4 '>
       {features_array.map((feature, index) => (
         <FeatureCard
           key={index + feature.title}
@@ -12,7 +12,7 @@ function Features() {
           image={feature.image}
         />
       ))}
-    </section>
+    </ul>
   );
 }
 

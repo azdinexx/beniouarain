@@ -57,7 +57,7 @@ async function BlogPosts() {
       ))}
       <Link
         href={'/blog'}
-        className='flex justify-center items-center bg-gray-50 rounded-lg py-8 p-5  col-span-2'
+        className='flex justify-center items-center bg-gray-50 rounded-lg py-8 p-5  md:col-span-2'
       >
         <div className='flex gap-4 text-gray-400 font-bold  '>
           More Articles
