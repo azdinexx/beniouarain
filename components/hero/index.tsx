@@ -52,7 +52,10 @@ function SearchBar() {
           type='text'
           className=' w-full p-4 rounded-xl bg-white border shadow-2xl'
         />
-        <button className=' bg-amber-50 p-4  absolute right-2 top-0 border-y border-l  rounded-sxl text-green-500'>
+        <button
+          className=' bg-amber-50 p-4  absolute right-2 top-0 border-y border-l  rounded-sxl text-green-500'
+          aria-label='click to search or press enter'
+        >
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
@@ -65,7 +68,10 @@ function SearchBar() {
             />
           </svg>
         </button>
-        <button className='  p-4 bg-white  absolute -translate-x-2  top-0 border rounded-e-2xl '>
+        <button
+          className='  p-4 bg-white  absolute -translate-x-2  top-0 border rounded-e-2xl '
+          aria-label='click here to discover all products'
+        >
           <p className='flex text-green-600'>
             discover{' '}
             <svg

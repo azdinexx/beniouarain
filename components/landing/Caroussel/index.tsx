@@ -38,6 +38,7 @@ function Carousel({ products }: { products: Product[] }) {
       <button
         className='absolute z-30 right-6 top-1/2 bg-white aspect-square rounded-full shadow-md p-1'
         onClick={nextSlide}
+        aria-label='Next Slide'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -52,6 +53,7 @@ function Carousel({ products }: { products: Product[] }) {
         </svg>
       </button>
       <button
+        aria-label='Previous Slide'
         className='absolute z-30 left-6 top-1/2 bg-white aspect-square rounded-full shadow-md p-1'
         onClick={prevSlide}
       >

@@ -22,6 +22,7 @@ export default function ProductImagesModal({
   return (
     <>
       <button
+        aria-label='open image modal'
         type='button'
         onClick={openModal}
         className='absolute top-2 right-2 rounded-md bg-amber-500 bg-opacity-50 p-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
@@ -88,6 +89,7 @@ export default function ProductImagesModal({
           </div>
           <div className='mt-4 fixed z-[60] top-3 right-8 md:top-10 md:right-36'>
             <button
+              aria-label='close modal'
               type='button'
               className='z-[61]  inline-flex justify-center rounded-full border border-transparent bg-blue-100  p-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
               onClick={closeModal}

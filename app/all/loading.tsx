@@ -44,6 +44,7 @@ export default function ProductListSkeleton() {
             {filters.map((filter) => {
               return (
                 <button
+                  aria-label={`filter by ${filter.title}`}
                   className='border px-6 py-3 rounded-xl uppercase'
                   key={filter.title}
                 >

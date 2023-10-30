@@ -53,10 +53,16 @@ function Carousel({ products }: Props) {
           <TextLoading />
 
           <div className='flex gap-2 justify-center my-2'>
-            <button className='px-5 py-2  text-white bg-amber-400 rounded-s-full animate-pulse opacity-70'>
+            <button
+              aria-label='add to cart'
+              className='px-5 py-2  text-white bg-amber-400 rounded-s-full animate-pulse opacity-70'
+            >
               Add To Cart
             </button>
-            <button className='px-5 py-2   border border-amber-400 rounded-e-full animate-pulse opacity-70'>
+            <button
+              aria-label='all products'
+              className='px-5 py-2   border border-amber-400 rounded-e-full animate-pulse opacity-70'
+            >
               All Products
             </button>
           </div>
@@ -70,7 +76,10 @@ function Carousel({ products }: Props) {
           </Link>
 
           <div className='flex gap-2 justify-center my-2'>
-            <button className=' px-5 py-2 text-white  bg-amber-400 rounded-s-full'>
+            <button
+              aria-label='add to cart'
+              className=' px-5 py-2 text-white  bg-amber-400 rounded-s-full'
+            >
               Add To Cart
             </button>
             <Link

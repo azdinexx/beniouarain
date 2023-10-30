@@ -61,16 +61,32 @@ export default Footer;
 function SocialMedia() {
   return (
     <div className='flex gap-4  '>
-      <Link href={'/'}>
+      <Link
+        href={'https://www.facebook.com/Artossi'}
+        aria-label='facebook page'
+        target='_blank'
+      >
         <Facebook />
       </Link>
-      <Link href={'/'}>
+      <Link
+        href={'https://www.instagram.com/artossi_official/'}
+        aria-label='instagram page'
+        target='_blanck'
+      >
         <Instagram />
       </Link>
-      <Link href={'/'}>
+      <Link
+        href={'https://www.youtube.com/channel/UCIIYYM8V1Y9aQdYJgO2BjmQ'}
+        aria-label='pintrest page'
+        target='_blanck'
+      >
         <Pinterest />
       </Link>
-      <Link href={'/'}>
+      <Link
+        href={'https://www.pinterest.com/Artossi_official/'}
+        aria-label='youtube page'
+        target='_blanck'
+      >
         <Youtube />
       </Link>
     </div>

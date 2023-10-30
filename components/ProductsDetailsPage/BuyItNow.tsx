@@ -16,6 +16,7 @@ function BuyItNow({ id }: { id: string }) {
 
   return (
     <button
+      aria-label='Buy It Now'
       className='  py-3 rounded-lg bg-amber-400 hover:bg-amber-400/80 shadow-md active:scale-90'
       onClick={() => {
         setPending(true);

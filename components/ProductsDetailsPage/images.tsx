@@ -28,6 +28,7 @@ function Images({ images, title }: { images: Array<string>; title: string }) {
         <ProductImagesModal images={images} title={title} />
         {/* Next Button */}
         <button
+          aria-label='next image'
           className={cn(
             'absolute z-10 top-1/2 right-10 w-10 h-10 bg-white  hover:opacity-70 rounded-full border flex justify-center items-center',
             !ImgIsLoaded && 'opacity-50 cursor-wait'
@@ -53,6 +54,7 @@ function Images({ images, title }: { images: Array<string>; title: string }) {
         </button>
         {/* Previous Button */}
         <button
+          aria-label='previous image'
           className={cn(
             'absolute z-10 top-1/2 left-10 w-10 h-10 bg-white hover:opacity-70 rounded-full border flex justify-center items-center',
             !ImgIsLoaded && 'opacity-50  cursor-wait'

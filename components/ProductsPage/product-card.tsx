@@ -49,7 +49,10 @@ function Card({ title, handle, price, images }: Props) {
           <div className='flex gap-3'>
             {/* the add to cart button */}
 
-            <button className='w-10 h-10   rounded-full flex justify-center items-center text-transparent md:group-hover:text-amber-900 hover:bg-amber-900/10  '>
+            <button
+              aria-label='add to cart'
+              className='w-10 h-10   rounded-full flex justify-center items-center text-transparent md:group-hover:text-amber-900 hover:bg-amber-900/10  '
+            >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='26'
@@ -64,7 +67,10 @@ function Card({ title, handle, price, images }: Props) {
             </button>
             {/* the arrow button */}
 
-            <button className='w-10 h-10   rounded-full flex justify-center items-center text-amber-300/40 md:group-hover:text-amber-400 md:group-hover:bg-amber-100  hover:bg-amber-300/10 '>
+            <button
+              aria-label='view product details'
+              className='w-10 h-10   rounded-full flex justify-center items-center text-amber-300/40 md:group-hover:text-amber-400 md:group-hover:bg-amber-100  hover:bg-amber-300/10 '
+            >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='26'
