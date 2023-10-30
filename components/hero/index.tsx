@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function Hero() {
   return (
@@ -55,6 +56,7 @@ function Hero() {
             height={500}
             width={500}
             alt='pouf'
+            loading='eager'
           />
         </div>
       </div>
@@ -65,9 +67,12 @@ function Hero() {
           minima quidem libero, quod a dicta laboriosam, aperiam delectus
           repellendus esse quisquam nisi!
         </p>
-        <button className='p-5  capitalize bg-amber-50 shadow-2xl rounded-xl'>
-          view details
-        </button>
+        <Link
+          href={'/all'}
+          className='p-5  capitalize bg-amber-50 shadow-2xl rounded-xl text-center hover:bg-amber-100/70 font-semibold'
+        >
+          Shop Now!
+        </Link>
       </div>
     </section>
   );

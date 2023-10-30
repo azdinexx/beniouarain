@@ -17,7 +17,6 @@ async function Page() {
   return (
     <>
       <Hero />
-      <Carousel products={Carousel_products} />
       <Collections collections={collections} />
       <Featured />
       <Caroussel products={Carousel_products} />
