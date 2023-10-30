@@ -9,7 +9,7 @@ interface Props {
 function Collections({ collections }: Props) {
   if (!collections) return null;
   return (
-    <section className='  grid grid-cols-2 md:grid-cols-4 py-3 gap-3 md:gap-10  my-10 '>
+    <section className='grid grid-cols-2 md:grid-cols-4 py-3 px-4 md:px-0 gap-3 md:gap-10  my-10 '>
       {collections.map((collection, index) =>
         collection.handle === ''
           ? null
@@ -35,7 +35,7 @@ function Collections({ collections }: Props) {
       )}
       <Link
         href='/collections'
-        className='  flex items-center justify-center text-2xl font-semibold text-white rounded-lg bg-amber-400'
+        className='  flex items-center justify-center text-2xl font-semibold text-black rounded-lg bg-amber-400/30'
       >
         See All
         <svg
