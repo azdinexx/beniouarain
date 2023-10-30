@@ -4,6 +4,19 @@ import Image from 'next/image';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
+interface Post {
+  fields: {
+    title: string;
+    body: string;
+    image: {
+      fields: {
+        file: {
+          url: string;
+        };
+      };
+    };
+  };
+}
 async function BlogPosts() {
   const posts = await getAllPosts();
   const formatter = new Intl.DateTimeFormat('en', {
@@ -22,7 +35,9 @@ async function BlogPosts() {
             width={500}
             height={500}
             alt={`image of ${post.fields.title as string}`}
-            src={`https:${post?.fields?.image?.fields.file.url}`}
+            src={`https:${
+              (post as unknown as Post)?.fields?.image?.fields.file.url
+            }`}
           />
           <h3 className='font-semibold'>{post.fields.title as string}</h3>
 
