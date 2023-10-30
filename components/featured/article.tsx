@@ -11,8 +11,12 @@ interface Props {
 }
 export function Article({ product, reverse = false, handle, children }: Props) {
   return (
-    <article className='grid grid-cols-1 md:grid-cols-2   border rounded-md'>
-      <div className={`${reverse && 'md:order-2'} flex flex-col gap-5 p-10`}>
+    <article className='grid grid-cols-1 md:grid-cols-2 border rounded-md'>
+      <div
+        className={`${
+          reverse ? 'md:order-1' : ''
+        } order-2  flex flex-col gap-5 p-10`}
+      >
         <a href={'/all/' + handle}>
           <h2 className='text-xl font-bold max-w-sm hover:underline'>
             {product.title}
@@ -25,8 +29,8 @@ export function Article({ product, reverse = false, handle, children }: Props) {
         {children}
       </div>
 
-      <div className='relative'>
-        <Link href={'/all/' + handle}>
+      <div className='relative p-2 md:p-0 order-1'>
+        <Link href={'/all/' + handle} className=''>
           <Image
             width={900}
             height={900}

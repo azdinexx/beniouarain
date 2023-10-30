@@ -23,11 +23,11 @@ async function BlogPosts() {
     dateStyle: 'long',
   });
   return (
-    <section className='grid grid-cols-3 gap-10 mb-20   rounded-sm'>
+    <section className='grid md:grid-cols-3 grid-cols-2 md:gap-10 gap-4 mb-20 p-4  rounded-sm '>
       {posts.map((post) => (
         <Link
           href={`/blog/${post.sys.id}`}
-          className='border-r pr-10 flex flex-col gap-3'
+          className='md:border-r md:pr-10 flex flex-col gap-3'
           key={post.sys.id}
         >
           <Image
@@ -39,7 +39,7 @@ async function BlogPosts() {
               (post as unknown as Post)?.fields?.image?.fields.file.url
             }`}
           />
-          <h3 className='font-semibold'>{post.fields.title as string}</h3>
+          <h3 className='font-semibold '>{post.fields.title as string}</h3>
 
           {(post?.fields?.body as string).split('\n').map(
             (paragraph, index) =>
@@ -49,7 +49,7 @@ async function BlogPosts() {
                 </p>
               )
           )}
-          <p className='italic text-gray-500'>
+          <p className='italic text-gray-500 '>
             {' '}
             {formatter.format(new Date(post.sys.createdAt as string))}
           </p>
@@ -57,10 +57,10 @@ async function BlogPosts() {
       ))}
       <Link
         href={'/blog'}
-        className='flex justify-center items-center bg-gray-50 rounded-lg  p-5'
+        className='flex justify-center items-center bg-gray-50 rounded-lg py-8 p-5  col-span-2'
       >
-        <div className='flex gap-4 text-gray-400 font-bold'>
-          More BlogPosts
+        <div className='flex gap-4 text-gray-400 font-bold  '>
+          More Articles
           <ArrowTopRightOnSquareIcon />
         </div>
       </Link>

@@ -1,10 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 import { getProducts } from '@/lib/shopify';
-import { Product } from '@/lib/shopify/types';
 import { AddToCart } from '../cart/add-to-cart';
 import './featured.css';
-import Link from 'next/link';
 import { Article } from './article';
 import { isMobile } from 'react-device-detect';
 
@@ -14,7 +11,7 @@ async function Featured() {
   });
 
   return (
-    <div className='max-w-7xl mx-auto md:my-48  flex flex-col gap-20 '>
+    <div className='max-w-7xl mx-auto md:my-48 p-4  flex flex-col md:gap-20  gap-10'>
       <h2
         className='font-bold text-4xl  max-w-sm'
         data-scroll
@@ -22,13 +19,13 @@ async function Featured() {
       >
         Featured Products This Week
       </h2>
-      <section className='grid     gap-36     '>
+      <section className='grid md:gap-36 gap-10'>
         {products.map((product, i) =>
           product === null ? null : (
             <Article
               key={product.id}
               product={product}
-              reverse={isMobile ? false : i % 2 === 1}
+              reverse={i % 2 === 1}
               handle={product.handle}
             >
               <AddToCart
