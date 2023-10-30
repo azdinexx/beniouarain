@@ -5,8 +5,8 @@ import { getCollections, getProducts } from '@/lib/shopify';
 
 import React from 'react';
 import Caroussel from '@/components/landing/Caroussel';
-import Carousel from '@/components/Mobile/carousel';
 import Hero from '@/components/hero';
+import BlogPosts from '@/components/BlogPosts';
 
 async function Page() {
   const Carousel_products = await getProducts({
@@ -19,6 +19,7 @@ async function Page() {
       <Hero />
       <Collections collections={collections} />
       <Featured />
+      <BlogPosts />
       <Caroussel products={Carousel_products} />
       <Features />
     </>
