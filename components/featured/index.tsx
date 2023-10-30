@@ -14,15 +14,15 @@ async function Featured() {
   });
 
   return (
-    <div className='max-w-6xl mx-auto md:my-48  p attern  '>
+    <div className='max-w-7xl mx-auto md:my-48  flex flex-col gap-20 '>
       <h2
-        className='font-bold text-4xl mb-5 max-w-sm'
+        className='font-bold text-4xl  max-w-sm'
         data-scroll
         data-scroll-speed='0.45'
       >
         Featured Products This Week
       </h2>
-      <section className='grid grid-cols-1   gap-20     '>
+      <section className='grid     gap-36     '>
         {products.map((product, i) =>
           product === null ? null : (
             <Article
@@ -34,6 +34,7 @@ async function Featured() {
               <AddToCart
                 variants={product.variants}
                 availableForSale={product.availableForSale}
+                className='border w-full relative p-4 rounded-md bg-white '
               />
             </Article>
           )
