@@ -6,7 +6,6 @@ import { Product } from '@/lib/shopify/types';
 function Carousel({ products }: { products: Product[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemWidth, setItemWidth] = useState(0);
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     const items = document.querySelectorAll('.carousel-item');
