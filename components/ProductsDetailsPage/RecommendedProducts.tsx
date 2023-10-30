@@ -11,7 +11,10 @@ function RecommendedProducts({ data }: { data: Array<Product> }) {
         {data.map((product, i) =>
           i < 4 ? (
             <div key={product.id}>
-              <Link href={product.handle}>
+              <Link
+                href={product.handle}
+                aria-label={'view more about ' + product.title}
+              >
                 <div className='aspect-square  w-full  rounded-lg  overflow-hidden transition duration-150 ease-in-out  '>
                   <Image
                     src={product.images[0].url}

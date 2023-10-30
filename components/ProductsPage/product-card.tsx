@@ -18,7 +18,10 @@ function Card({ title, handle, price, images }: Props) {
     setLoading(false);
   };
   return (
-    <a href={'all/' + handle}>
+    <a
+      href={'all/' + handle}
+      aria-label={'view more about this product titled ' + title}
+    >
       <div
         className='group p-2 md:hover:ring-1     md:hover:shadow-lg transition duration-300 ease-in-out   flex flex-col justify-between rounded-xl md:hover:scale-110'
         onMouseEnter={() => setCurrentImage(1)}

@@ -27,7 +27,7 @@ async function Footer() {
         <Brand />
         <ImportantLinks />
         <div className='flex flex-col justify-center items-center gap-3 col-span-2 md:col-span-1 border p-2 rounded-lg text-stone-600'>
-          <Link href={'/'}>
+          <Link href={'/'} aria-label={`the homepage of BeniOuarain Rugs`}>
             <span className={`text-2xl  ${font.className} uppercase`}>
               BeniOuarain <br /> Rugs
             </span>
@@ -49,11 +49,8 @@ async function Footer() {
         ))}
       </section>
       <section className='text-center pt-5 border-t border-amber-900/10 '>
-        <Link href={'/'}>
-          <span className='font-bold hover:underline'>BeniOuarain Rugs</span>{' '}
-          All rights reserved
-        </Link>
-        &copy; {new Date().getFullYear()}
+        <span className='font-bold hover:underline'>BeniOuarain Rugs</span> All
+        rights reserved &copy; {new Date().getFullYear()}
       </section>
     </footer>
   );

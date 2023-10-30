@@ -28,7 +28,9 @@ function ImportantLinks() {
       <ul>
         {importantLinks.map((link) => (
           <li key={link.title} className='underline hover:no-underline'>
-            <Link href={link.href}>{link.title}</Link>
+            <Link href={link.href} aria-label={`Read more about ${link.title}`}>
+              {link.title}
+            </Link>
           </li>
         ))}
       </ul>

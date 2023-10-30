@@ -21,6 +21,7 @@ async function page() {
             key={post.sys.id}
           >
             <Link
+              aria-label={`Read more about ${post.fields.title?.toString()}`}
               href={'/blog/' + post.sys.id}
               className='underline text-amber-900 flex'
             >
@@ -31,7 +32,10 @@ async function page() {
                 </span>
               </h4>
             </Link>
-            <Link href={'/blog/' + post.sys.id}>
+            <Link
+              href={'/blog/' + post.sys.id}
+              aria-label={`Read more about ${post.fields.title?.toString()}`}
+            >
               <Image
                 src={
                   'https:' +
@@ -47,6 +51,7 @@ async function page() {
             <p>
               {(post.fields.body as string)?.substr(0, 180) + '...'}
               <Link
+                aria-label={`Read more about ${post.fields.title?.toString()}`}
                 href={'/blog/' + post.sys.id}
                 className='underline text-amber-900 flex'
               >

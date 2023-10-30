@@ -32,7 +32,12 @@ function Carousel({ products }: Props) {
       <div className=' relative aspect-square md:aspect-video overflow-hidden m-1'>
         {/* Loading*/}
         <ImageLoading loading={loading} />
-        <Link href={'/all/' + products[currentSlide].handle}>
+        <Link
+          href={'/all/' + products[currentSlide].handle}
+          aria-label={
+            'Visit Product Page titled : ' + products[currentSlide].title
+          }
+        >
           <Image
             width={isMobile ? 800 : 1000}
             height={isMobile ? 800 : 1000}

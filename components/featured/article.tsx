@@ -30,7 +30,11 @@ export function Article({ product, reverse = false, handle, children }: Props) {
       </div>
 
       <div className='relative p-2 md:p-0 order-1'>
-        <Link href={'/all/' + handle} className=''>
+        <Link
+          href={'/all/' + handle}
+          className=''
+          aria-label={`Discover more about ${product.title}`}
+        >
           <Image
             width={900}
             height={900}
