@@ -48,7 +48,12 @@ function Parameter({
       >
         <span className='flex justify-between border-b p-2 font-bold'>
           <span>
-            <button className='border text-sm p-1 rounded-md'>0</button>{' '}
+            <button
+              aria-label='this is how many items you have selected'
+              className='border text-sm p-1 rounded-md'
+            >
+              0
+            </button>{' '}
             selected
           </span>
           <button className='border text-sm p-1 rounded-md'>Clear</button>

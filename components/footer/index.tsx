@@ -27,7 +27,7 @@ async function Footer() {
         <Brand />
         <ImportantLinks />
         <div className='flex flex-col justify-center items-center gap-3 col-span-2 md:col-span-1 border p-2 rounded-lg text-stone-600'>
-          <Link href={'/'}>
+          <Link href={'/'} aria-label={`the homepage of BeniOuarain Rugs`}>
             <span className={`text-2xl  ${font.className} uppercase`}>
               BeniOuarain <br /> Rugs
             </span>
@@ -49,11 +49,8 @@ async function Footer() {
         ))}
       </section>
       <section className='text-center pt-5 border-t border-amber-900/10 '>
-        <Link href={'/'}>
-          <span className='font-bold hover:underline'>BeniOuarain Rugs</span>{' '}
-          All rights reserved
-        </Link>
-        &copy; {new Date().getFullYear()}
+        <span className='font-bold hover:underline'>BeniOuarain Rugs</span> All
+        rights reserved &copy; {new Date().getFullYear()}
       </section>
     </footer>
   );
@@ -64,16 +61,32 @@ export default Footer;
 function SocialMedia() {
   return (
     <div className='flex gap-4  '>
-      <Link href={'/'}>
+      <Link
+        href={'https://www.facebook.com/Artossi'}
+        aria-label='facebook page'
+        target='_blank'
+      >
         <Facebook />
       </Link>
-      <Link href={'/'}>
+      <Link
+        href={'https://www.instagram.com/artossi_official/'}
+        aria-label='instagram page'
+        target='_blanck'
+      >
         <Instagram />
       </Link>
-      <Link href={'/'}>
+      <Link
+        href={'https://www.youtube.com/channel/UCIIYYM8V1Y9aQdYJgO2BjmQ'}
+        aria-label='pintrest page'
+        target='_blanck'
+      >
         <Pinterest />
       </Link>
-      <Link href={'/'}>
+      <Link
+        href={'https://www.pinterest.com/Artossi_official/'}
+        aria-label='youtube page'
+        target='_blanck'
+      >
         <Youtube />
       </Link>
     </div>

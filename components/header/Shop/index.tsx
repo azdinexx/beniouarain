@@ -49,7 +49,10 @@ function Shop({
   }, [getCollections]);
   return (
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <button className='bg-amber-200/20 px-4 py-1 text-amber-900 active:scale-95'>
+      <button
+        className='bg-amber-200/20 px-4 py-1 text-amber-900 active:scale-95'
+        aria-label='shop now'
+      >
         Shop
       </button>
       <div

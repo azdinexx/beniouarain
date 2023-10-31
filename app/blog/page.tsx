@@ -2,6 +2,27 @@ import React from 'react';
 import { getAllPosts } from '@/lib/blog';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import blog from '@/public/blog.jpg';
+
+export const metadata: Metadata = {
+  title: 'BeniOurain Blog',
+  description:
+    'Read articles about our beniourain rugs and other diffrent products from all over Morocco',
+  openGraph: {
+    title: 'BeniOurain Blog',
+    description:
+      'Read articles about our beniourain rugs and other diffrent products from all over Morocco',
+    images: [
+      {
+        url: blog.src,
+        width: 1200,
+        height: 630,
+        alt: 'Beniourain Blog',
+      },
+    ],
+  },
+};
 
 async function page() {
   const posts = await getAllPosts();
@@ -21,6 +42,7 @@ async function page() {
             key={post.sys.id}
           >
             <Link
+              aria-label={`Read more about ${post.fields.title?.toString()}`}
               href={'/blog/' + post.sys.id}
               className='underline text-amber-900 flex'
             >
@@ -31,7 +53,10 @@ async function page() {
                 </span>
               </h4>
             </Link>
-            <Link href={'/blog/' + post.sys.id}>
+            <Link
+              href={'/blog/' + post.sys.id}
+              aria-label={`Read more about ${post.fields.title?.toString()}`}
+            >
               <Image
                 src={
                   'https:' +
@@ -47,6 +72,7 @@ async function page() {
             <p>
               {(post.fields.body as string)?.substr(0, 180) + '...'}
               <Link
+                aria-label={`Read more about ${post.fields.title?.toString()}`}
                 href={'/blog/' + post.sys.id}
                 className='underline text-amber-900 flex'
               >

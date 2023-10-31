@@ -14,19 +14,25 @@ async function page() {
           (item, index) =>
             item.handle !== '' && (
               <div key={item.handle + index}>
-                <Link href={'collections/' + item.handle}>
+                <Link
+                  href={'collections/' + item.handle}
+                  aria-label={`Read more about ${item.title}`}
+                >
                   <div className=' aspect-video rounded-md overflow-hidden'>
                     <Image
                       width={800}
                       height={800}
                       alt={item.title}
-                      src={'/collections/' + (index % 3) + '.jpg'}
+                      src={'/collections/' + (index % 3) + '.webp'}
                       className='object-cover  inset-0 w-full h-full'
                     />
                   </div>
                 </Link>
 
-                <Link href={'collections/' + item.handle}>
+                <Link
+                  href={'collections/' + item.handle}
+                  aria-label={`Read more about ${item.title}`}
+                >
                   <h2 className='text-3xl group py-4 underline flex items-center '>
                     {item.title}
                     <svg

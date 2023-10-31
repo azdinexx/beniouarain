@@ -6,7 +6,11 @@ function error({ error, reset }: { error: any; reset: () => void }) {
   return (
     <div className='flex gap-2'>
       something went wrong
-      <button className='text-blue-600' onClick={reset}>
+      <button
+        className='text-blue-600'
+        onClick={reset}
+        aria-label='refresh page'
+      >
         refresh
       </button>
       or

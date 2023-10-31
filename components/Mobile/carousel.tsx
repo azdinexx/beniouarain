@@ -1,10 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import cn from '@/lib/merge';
 import { Product } from '@/lib/shopify/types';
-import LoadingDots from '../loading-dots';
 import Link from 'next/link';
+import { isMobile } from 'react-device-detect';
 
 interface Props {
   products: Product[];
@@ -21,7 +20,7 @@ function Carousel({ products }: Props) {
 
   if (!isclient || !products) return null;
   return (
-    <div className=' p-3   md:hidden my-3 relative flex flex-col'>
+    <div className=' p-3 my-3 relative flex flex-col'>
       {/* Controllers */}
       <Controllers
         currentSlide={currentSlide}
@@ -30,13 +29,18 @@ function Carousel({ products }: Props) {
         max={products.length - 1}
       />
       {/* Image */}
-      {/* Loading*/}
-      <div className=' relative aspect-square m-1'>
+      <div className=' relative aspect-square md:aspect-video overflow-hidden m-1'>
+        {/* Loading*/}
         <ImageLoading loading={loading} />
-        <Link href={'/all/' + products[currentSlide].handle}>
+        <Link
+          href={'/all/' + products[currentSlide].handle}
+          aria-label={
+            'Visit Product Page titled : ' + products[currentSlide].title
+          }
+        >
           <Image
-            width={800}
-            height={800}
+            width={isMobile ? 800 : 1000}
+            height={isMobile ? 800 : 1000}
             src={products[currentSlide].featuredImage.url}
             alt='Antique Rugs'
             className='object-cover  inset-0 w-full h-full'
@@ -49,24 +53,33 @@ function Carousel({ products }: Props) {
           <TextLoading />
 
           <div className='flex gap-2 justify-center my-2'>
-            <button className='px-5 py-2  text-white bg-amber-400 rounded-s-full animate-pulse opacity-70'>
+            <button
+              aria-label='add to cart'
+              className='px-5 py-2  text-white bg-amber-400 rounded-s-full animate-pulse opacity-70'
+            >
               Add To Cart
             </button>
-            <button className='px-5 py-2   border border-amber-400 rounded-e-full animate-pulse opacity-70'>
+            <button
+              aria-label='all products'
+              className='px-5 py-2   border border-amber-400 rounded-e-full animate-pulse opacity-70'
+            >
               All Products
             </button>
           </div>
         </>
       ) : (
-        <>
+        <div className='md:absolute bottom-4 left-4 right-4 bg-white/70 p-2 md:flex '>
           <Link href={'/all/' + products[currentSlide].handle}>
-            <h1 className={'m-3   text-gray-800'}>
+            <h1 className={'m-3 text-xl max-w-lg  text-gray-800'}>
               {products[currentSlide].title}
             </h1>
           </Link>
 
           <div className='flex gap-2 justify-center my-2'>
-            <button className=' px-5 py-2 text-white  bg-amber-400 rounded-s-full'>
+            <button
+              aria-label='add to cart'
+              className=' px-5 py-2 text-white  bg-amber-400 rounded-s-full'
+            >
               Add To Cart
             </button>
             <Link
@@ -76,7 +89,7 @@ function Carousel({ products }: Props) {
               All Products
             </Link>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
@@ -98,7 +111,11 @@ function Controllers({
   return (
     <>
       <button
-        className='absolute z-10 top-1/3 right-7 text-gray-50 rounded-full'
+        type='button'
+        name='next'
+        aria-label='next slide button'
+        title='next slide button'
+        className='absolute z-10 top-1/2 right-7 text-gray-50 rounded-xl bg-amber-500 shadow-lg'
         onClick={() => {
           currentSlide === max
             ? setCurrentSlide(0)
@@ -108,8 +125,8 @@ function Controllers({
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          width='36'
-          height='36'
+          width='40'
+          height='40'
           viewBox='0 0 24 24'
         >
           <path
@@ -119,7 +136,11 @@ function Controllers({
         </svg>
       </button>
       <button
-        className='z-10 absolute top-1/3 left-7 text-gray-50 rounded-full'
+        type='button'
+        name='previous'
+        aria-label='previous slide button'
+        title='previous slide button'
+        className='z-10 absolute top-1/2 left-7 text-gray-50 rounded-xl bg-amber-500 shadow-lg'
         onClick={() => {
           currentSlide === 0
             ? setCurrentSlide(max)
@@ -129,8 +150,8 @@ function Controllers({
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          width='36'
-          height='36'
+          width='40'
+          height='40'
           viewBox='0 0 24 24'
         >
           <path

@@ -94,6 +94,7 @@ function Hero({
           {filters.map((filter) => {
             return (
               <button
+                aria-label={`filter by ${filter.title}`}
                 className='border px-4 py-1 rounded-full  capitalize bg-gray-50'
                 onClick={() => {
                   setQuery(filter.query);

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function Features() {
   return (
-    <section className='grid grid-cols-2 gap-2 md:grid-cols-4    my-4 p-4 '>
+    <ul className='grid grid-cols-2 gap-2 md:grid-cols-4    my-4 p-4 '>
       {features_array.map((feature, index) => (
         <FeatureCard
           key={index + feature.title}
@@ -12,7 +12,7 @@ function Features() {
           image={feature.image}
         />
       ))}
-    </section>
+    </ul>
   );
 }
 
@@ -47,21 +47,21 @@ const features_array = [
   {
     title: 'Free Shipping',
     description: 'Available as Standard or Express delivery',
-    image: '/features/free_shipping.png',
+    image: '/features/free_shipping.webp',
   },
   {
     title: 'Free Returns',
     description: 'Free returns on all orders  ',
-    image: '/features/free_returns.png',
+    image: '/features/free_returns.webp',
   },
   {
     title: 'Secure Payments',
     description: '100% Secure payment with 256-bit SSL Encryption',
-    image: '/features/secure_payments.png',
+    image: '/features/secure_payments.webp',
   },
   {
     title: 'Local Support',
     description: '24/7 Dedicated support',
-    image: '/features/local_support.png',
+    image: '/features/local_support.webp',
   },
 ];
