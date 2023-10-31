@@ -2,6 +2,27 @@ import React from 'react';
 import { getAllPosts } from '@/lib/blog';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import blog from '@/public/blog.jpg';
+
+export const metadata: Metadata = {
+  title: 'BeniOurain Blog',
+  description:
+    'Read articles about our beniourain rugs and other diffrent products from all over Morocco',
+  openGraph: {
+    title: 'BeniOurain Blog',
+    description:
+      'Read articles about our beniourain rugs and other diffrent products from all over Morocco',
+    images: [
+      {
+        url: blog.src,
+        width: 1200,
+        height: 630,
+        alt: 'Beniourain Blog',
+      },
+    ],
+  },
+};
 
 async function page() {
   const posts = await getAllPosts();
