@@ -87,7 +87,7 @@ function Shop({
                       className='bg-amber-500 relative text-white flex items-center justify-center   rounded-md overflow-hidden'
                     >
                       <Image
-                        src={'/collections/' + index + '.jpg'}
+                        src={'/collections/' + index + '.webp'}
                         width={500}
                         height={500}
                         alt={collection.title}

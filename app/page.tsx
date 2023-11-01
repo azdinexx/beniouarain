@@ -7,6 +7,37 @@ import React from 'react';
 import Caroussel from '@/components/landing/Caroussel';
 import Hero from '@/components/hero';
 import BlogPosts from '@/components/BlogPosts';
+import { Metadata } from 'next';
+import image from '@/public/seo/blog.jpg';
+
+export const metadata: Metadata = {
+  title: 'BeniOuarain Rugs',
+  description: 'BeniOuarain Rugs , shop the best rugs in the world',
+  openGraph: {
+    title: 'BeniOuarain Rugs',
+    description: 'BeniOuarain Rugs , shop the best rugs in the world',
+    images: [
+      {
+        url: image.src,
+        width: 1200,
+        height: 630,
+        alt: 'BeniOuarain Rugs',
+      },
+    ],
+  },
+  robots: {
+    follow: true,
+    index: true,
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Website',
+  name: 'BeniOuarain Rugs',
+  image: image,
+  description: 'BeniOuarain Rugs , shop the best rugs in the world',
+};
 
 async function Page() {
   const Carousel_products = await getProducts({
@@ -16,6 +47,10 @@ async function Page() {
 
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Hero />
       <Collections collections={collections} />
       <Featured />
