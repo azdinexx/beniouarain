@@ -1,5 +1,3 @@
-const { hostname } = require('os');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -12,5 +10,3 @@ const nextConfig = {
     serverActions: true,
   },
 };
-
-module.exports = nextConfig;
