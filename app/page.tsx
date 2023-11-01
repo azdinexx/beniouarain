@@ -12,7 +12,7 @@ import { Metadata } from 'next';
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Website',
+  '@type': 'Organization',
   name: 'BeniOuarain Rugs',
   image: image,
   description: 'BeniOuarain Rugs , shop the best rugs in the world',

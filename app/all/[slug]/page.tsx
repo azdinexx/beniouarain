@@ -5,6 +5,35 @@ import React from 'react';
 import { getProduct, getProducts } from '@/lib/shopify';
 import { Product } from '@/lib/shopify/types';
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const product = await getProduct(slug);
+
+  return {
+    title: product?.title,
+    description: product?.description.substring(0, 150),
+    openGraph: {
+      title: product?.title,
+      description: product?.description,
+      images: [
+        {
+          url: product?.featuredImage.url,
+          width: 1200,
+          height: 630,
+          alt: product?.title,
+        },
+      ],
+    },
+    robots: {
+      follow: true,
+      index: true,
+    },
+  };
+}
 async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
   try {
