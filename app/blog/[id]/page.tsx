@@ -19,6 +19,42 @@ interface Post {
   };
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const blog_post = await getPost(slug);
+
+  let description = (blog_post?.fields?.body as string).split('\n')[0];
+  let image = `https:${
+    (blog_post as unknown as Post)?.fields?.image?.fields.file.url
+  }`;
+  let alt = `image for ${blog_post?.fields.title}`;
+
+  return {
+    title: blog_post?.fields.title,
+    description: description,
+    openGraph: {
+      title: blog_post?.fields.title,
+      description: description,
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: alt,
+        },
+      ],
+    },
+    robots: {
+      follow: true,
+      index: true,
+    },
+  };
+}
+
 async function page({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);
   if (!post) return <div>404</div>;

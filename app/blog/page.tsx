@@ -3,10 +3,10 @@ import { getAllPosts } from '@/lib/blog';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import blog from '@/public/blog.jpg';
+import blog from '@/public/seo/blog.jpg';
 
 export const metadata: Metadata = {
-  title: 'BeniOurain Blog',
+  title: 'Blog | BeniOurain',
   description:
     'Read articles about our beniourain rugs and other diffrent products from all over Morocco',
   openGraph: {
