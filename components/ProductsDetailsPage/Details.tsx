@@ -17,6 +17,7 @@ function Details({ product }: { product: Product }) {
       <AddToCart
         variants={product.variants}
         availableForSale={product.availableForSale}
+        className='relative bg-amber-900 text-white px-4 py-4 rounded-md w-full'
       />
 
       <BuyItNow id={product.variants[0].id} />

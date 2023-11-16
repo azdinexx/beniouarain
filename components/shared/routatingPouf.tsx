@@ -17,6 +17,7 @@ function RoutatingPouf() {
         duration: 10,
         ease: 'backInOut',
       }}
+      className='border border-amber-300 rounded-full'
     />
   );
 }

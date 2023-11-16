@@ -19,7 +19,7 @@ function Hero() {
           <RoutatingPouf />
         </div>
       </div>
-      <div className='absolute md:relative w-[90%] bottom-0   md:w-1/3  flex flex-col p-9 gap-4  '>
+      <div className='absolute  md:relative w-[90%] bottom-0   md:w-1/3  flex flex-col p-9 gap-4  '>
         <p className='mt-auto hidden md:block'>
           We are proud to offer a wide variety of Moroccan rugs, including
           traditional Beni Ourain rugs, colorful Azilal rugs, and intricate

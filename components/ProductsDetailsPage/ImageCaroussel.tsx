@@ -72,7 +72,7 @@ export default function ProductImagesModal({
                   >
                     {title}
                   </Dialog.Title>
-                  <div className='mt-2'>
+                  <div className='mt-2 space-y-4'>
                     {images.map((image, index) => (
                       <Image
                         src={image}
