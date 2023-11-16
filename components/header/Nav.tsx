@@ -40,13 +40,13 @@ export interface NavItem {
 }
 
 const navo: NavItem[] = [
-  { title: 'All', href: '/all' },
-  { title: 'Blog', href: '/blog' },
+  { title: 'Catalog', href: '/all' },
   { title: 'Collections', href: '/collections' },
   {
     title: 'About',
     href: '/about',
   },
+  { title: 'Blog', href: '/blog' },
 ];
 
 export function ClientNav() {
